@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withAuth } from './../context/auth-context';
+import { withAuth } from "./../context/auth-context";
 
 class Private extends Component {
   render() {
@@ -7,14 +7,14 @@ class Private extends Component {
       <div>
         <h1>Private Route</h1>
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
+        <img src={this.props.user.img} />
+
         {/* 
         <h2>Welcome {this.props.user ? this.props.user.username : null }</h2> 
         */}
-
       </div>
     );
   }
 }
-
 
 export default withAuth(Private);

@@ -1,20 +1,44 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../context/auth-context";
+import axios from "axios";
 
 class Signup extends Component {
-  state = { username: "", email: "", password: "" };
+  state = { username: "", img: "", email: "", password: "" };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { username, email, password } = this.state;
+    const { username, img, email, password } = this.state;
 
-    this.props.signup(username, email, password);
+    this.props.signup(username, img, email, password);
   };
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files);
+    const file = e.target.files[0];
+
+    const uploadData = new FormData();
+    // image => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new project in '/api/projects' POST route
+    uploadData.append("img", file);
+
+    axios
+      .post("http://localhost:5000/auth/upload", uploadData, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log("response is: ", response);
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        this.setState({ img: response.data.secure_url });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
   };
 
   render() {
@@ -31,6 +55,20 @@ class Signup extends Component {
             value={username}
             onChange={this.handleChange}
           />
+
+          <label>Image</label>
+          <input
+            name="img"
+            type="file"
+            onChange={this.handleFileUpload}
+          ></input>
+          <span>
+            <img
+              style={{ width: "100px" }}
+              src={this.state.img && this.state.img}
+              alt=""
+            ></img>
+          </span>
 
           <label>Email:</label>
           <input
