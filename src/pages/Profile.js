@@ -25,6 +25,13 @@ class Profile extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Component did update");
+    if (prevState.attendedWorkshops !== this.state.attendedWorkshops) {
+      console.log("YAAAAAAAAY");
+    }
+  }
+
   render() {
     return (
       <div>

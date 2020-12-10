@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withAuth } from "./../context/auth-context";
+import moment from "moment";
 
 class WorkshopDetails extends React.Component {
   state = {
@@ -57,6 +58,8 @@ class WorkshopDetails extends React.Component {
 
   handleSubmit = () => {
     console.log("BUTTON CLICKED");
+    const { id } = this.props.match.params;
+
     if (this.props.user) {
       const { id } = this.props.match.params;
       const userId = this.props.user._id;
@@ -76,7 +79,7 @@ class WorkshopDetails extends React.Component {
   };
 
   render() {
-    const date = new Date(this.state.date);
+    const date = moment(this.state.date).format("LLLL");
 
     return (
       <div>
@@ -84,7 +87,7 @@ class WorkshopDetails extends React.Component {
         <h2>{this.state.title}</h2>
         <img src={this.state.img} alt="" />
         <p>{this.state.description}</p>
-
+        <p>{date}</p>
         <p>{this.state.length} mins</p>
         <p>price: {this.state.credits} credits</p>
         <p>{this.state.location}</p>
