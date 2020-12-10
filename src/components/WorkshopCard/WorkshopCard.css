@@ -1,0 +1,14 @@
+.workshop-card {
+  display: flex;
+  width: 80%;
+  height: 200px;
+  border: 1px solid black;
+  margin: 20px;
+
+}
+
+.workshop-card img {
+  width: 30%;
+  height: 100px;
+  object-fit: cover;
+}
