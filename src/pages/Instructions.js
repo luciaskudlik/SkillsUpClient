@@ -3,7 +3,9 @@ import React from "react";
 function Instructions() {
   return (
     <div>
-      <h1>Instructions Page</h1>
+      <h1>How does SkillsUp Work?</h1>
+
+      <p></p>
     </div>
   );
 }

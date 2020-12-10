@@ -27,6 +27,13 @@ class Navbar extends Component {
               <Link className="nav-link active" aria-current="page" to={"/"}>
                 Home
               </Link>
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to={"/instructions"}
+              >
+                How works?
+              </Link>
               <Link className="nav-link" to={"/private/profile"}>
                 My Profile
               </Link>

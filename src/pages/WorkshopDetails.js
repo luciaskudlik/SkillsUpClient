@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { withAuth } from "./../context/auth-context";
 
 class WorkshopDetails extends React.Component {
   state = {
@@ -12,7 +13,8 @@ class WorkshopDetails extends React.Component {
     credits: 0,
     participants: [],
     host: " ",
-    location: "",
+    location: " ",
+    successMessage: " ",
   };
 
   getSingleWorkshop = () => {
@@ -54,12 +56,27 @@ class WorkshopDetails extends React.Component {
   }
 
   handleSubmit = () => {
-    
-  }
-
+    console.log("BUTTON CLICKED");
+    if (this.props.user) {
+      const { id } = this.props.match.params;
+      const userId = this.props.user._id;
+      console.log(id);
+      axios
+        .post(`http://localhost:5000/api/workshops/signup/${id}`, { userId })
+        .then((res) => {
+          console.log(res);
+          this.setState({
+            successMessage: "You successfully signed up for this workshop.",
+          });
+        })
+        .catch((error) => console.log("ERROR ", error));
+    } else {
+      this.props.history.push("/login");
+    }
+  };
 
   render() {
-    const date = JSON.stringify(new Date(this.state.date));
+    const date = new Date(this.state.date);
 
     return (
       <div>
@@ -67,7 +84,7 @@ class WorkshopDetails extends React.Component {
         <h2>{this.state.title}</h2>
         <img src={this.state.img} alt="" />
         <p>{this.state.description}</p>
-        <p>{date}</p>
+
         <p>{this.state.length} mins</p>
         <p>price: {this.state.credits} credits</p>
         <p>{this.state.location}</p>
@@ -75,9 +92,10 @@ class WorkshopDetails extends React.Component {
         <button type="submit" onClick={this.handleSubmit}>
           Sign up for Workshop!
         </button>
+        <p>{this.state.successMessage}</p>
       </div>
     );
   }
 }
 
-export default WorkshopDetails;
+export default withAuth(WorkshopDetails);
