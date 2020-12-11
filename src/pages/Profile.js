@@ -71,22 +71,34 @@ class Profile extends Component {
         ) : null}
 
         <h2>Your hosted workshops</h2>
-        {this.state.hostedWorkshops.map((workshop) => {
-          return (
-            <div key={workshop._id}>
-              <WorkshopCard workshop={workshop} showBin={true} showPen={true} />
-            </div>
-          );
-        })}
+        {this.state.hostedWorkshops
+          .map((workshop) => {
+            return (
+              <div key={workshop._id}>
+                <WorkshopCard
+                  workshop={workshop}
+                  showBin={true}
+                  showPen={true}
+                />
+              </div>
+            );
+          })
+          .reverse()}
 
         <h2>Your upcoming workshops</h2>
-        {this.state.attendedWorkshops.map((workshop) => {
-          return (
-            <div key={workshop._id}>
-              <WorkshopCard workshop={workshop} showCross={true} />
-            </div>
-          );
-        })}
+        {this.state.attendedWorkshops
+          .map((workshop) => {
+            return (
+              <div key={workshop._id}>
+                <WorkshopCard
+                  workshop={workshop}
+                  showCross={true}
+                  userId={this.props.user._id}
+                />
+              </div>
+            );
+          })
+          .reverse()}
 
         {/* 
         <h2>Welcome {this.props.user ? this.props.user.username : null }</h2> 

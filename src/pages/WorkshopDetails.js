@@ -91,6 +91,12 @@ class WorkshopDetails extends React.Component {
         <p>{this.state.length} mins</p>
         <p>price: {this.state.credits} credits</p>
         <p>{this.state.location}</p>
+
+        <h4>These people are already signed up:</h4>
+
+        {this.state.participants.map((person) => {
+          return <img src={person.img} alt="" />
+        })}
         <button type="submit" onClick={this.handleSubmit}>
           Sign up for Workshop!
         </button>
