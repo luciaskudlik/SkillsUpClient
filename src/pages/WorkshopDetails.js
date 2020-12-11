@@ -91,7 +91,6 @@ class WorkshopDetails extends React.Component {
         <p>{this.state.length} mins</p>
         <p>price: {this.state.credits} credits</p>
         <p>{this.state.location}</p>
-
         <button type="submit" onClick={this.handleSubmit}>
           Sign up for Workshop!
         </button>
