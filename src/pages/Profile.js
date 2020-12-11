@@ -46,6 +46,7 @@ class Profile extends Component {
     console.log("it works.");
     const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
     this.setState({ hostedWorkshops: updatedWorkshops });
+    this.toggleForm();
   };
 
   render() {
