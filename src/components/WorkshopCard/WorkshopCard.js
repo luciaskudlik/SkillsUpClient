@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 import "./WorkshopCard.css";
 
 class WorkshopCard extends React.Component {
+  handleDelete = () => {
+    axios
+      .delete(`http://localhost:5000/api/workshops/${this.props.workshop._id}`)
+      .then((response) => {
+        console.log("SUCCESSFULLY DELETED");
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     const workshop = this.props.workshop;
 
@@ -16,6 +25,10 @@ class WorkshopCard extends React.Component {
         <Link to={`/workshops/${workshop._id}`}>
           <button>Learn More</button>
         </Link>
+        <div onClick={this.handleDelete}>
+          {this.props.showBin ? <i class="fas fa-trash-alt"></i> : null}
+        </div>
+        <div>{this.props.showPen ? <i class="fas fa-pen"></i> : null}</div>
       </div>
     );
   }

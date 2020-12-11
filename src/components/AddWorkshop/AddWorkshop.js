@@ -10,7 +10,7 @@ class AddWorkshop extends React.Component {
     date: "",
     length: 0,
     credits: 0,
-    maxParticipants: 0,
+    maxParticipants: "",
     location: "",
   };
 
@@ -21,6 +21,10 @@ class AddWorkshop extends React.Component {
     if (type === "checkbox") {
       value = !this.state[name];
     }
+
+    // if (name === "credits") {
+    //   this.setState({ credits: this.setState.length * 2 });
+    // }
 
     this.setState({ [name]: value });
   };
@@ -63,15 +67,15 @@ class AddWorkshop extends React.Component {
       })
       .catch((err) => console.log(err));
 
-    //clear form here
+    //clear form
     this.setState({
       title: "",
       description: "",
       category: "",
       date: "",
-      length: 0,
-      credits: 0,
-      maxParticipants: 0,
+      length: "",
+      credits: "",
+      maxParticipants: "",
       location: "",
     });
   };
@@ -171,6 +175,7 @@ class AddWorkshop extends React.Component {
           value={this.state.length}
           onChange={this.handleInput}
         />
+        <p>Price: {this.state.credits}</p>
         <input
           name="credits"
           type="number"
