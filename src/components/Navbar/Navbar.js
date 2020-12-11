@@ -32,7 +32,7 @@ class Navbar extends Component {
                 aria-current="page"
                 to={"/instructions"}
               >
-                How works?
+                How it works
               </Link>
               <Link className="nav-link" to={"/private/profile"}>
                 My Profile
