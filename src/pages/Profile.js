@@ -47,6 +47,15 @@ class Profile extends Component {
     const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
     this.setState({ hostedWorkshops: updatedWorkshops });
     this.toggleForm();
+
+    axios
+      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .then((response) => {
+        this.setState({
+          hostedWorkshops: response.data.hostedWorkshops,
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
   render() {
