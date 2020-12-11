@@ -58,8 +58,6 @@ class Profile extends Component {
       .catch((err) => console.log(err));
   };
 
- 
-
   render() {
     return (
       <div>
@@ -85,7 +83,7 @@ class Profile extends Component {
         {this.state.attendedWorkshops.map((workshop) => {
           return (
             <div key={workshop._id}>
-              <WorkshopCard workshop={workshop} />
+              <WorkshopCard workshop={workshop} showCross={true} />
             </div>
           );
         })}

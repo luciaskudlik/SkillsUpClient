@@ -29,6 +29,7 @@ class WorkshopCard extends React.Component {
           {this.props.showBin ? <i class="fas fa-trash-alt"></i> : null}
         </div>
         <div>{this.props.showPen ? <i class="fas fa-pen"></i> : null}</div>
+        <div>{this.props.showCross ? <i class="fas fa-times"></i> : null}</div>
       </div>
     );
   }
