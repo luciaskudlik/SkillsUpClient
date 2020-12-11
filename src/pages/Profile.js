@@ -7,6 +7,7 @@ import { withAuth } from "../context/auth-context";
 class Profile extends Component {
   state = {
     attendedWorkshops: [],
+    hostedWorkshops: [],
     showForm: false
   };
 
@@ -20,17 +21,32 @@ class Profile extends Component {
         })
         .catch((err) => console.log(err));
     
+
+      axios
+        .get(`http://localhost:5000/api/user`, { withCredentials: true })
+        .then((response) => {
+          this.setState({
+            hostedWorkshops: response.data.hostedWorkshops
+          });
+        })
+        .catch((err) => console.log(err));
 }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("Component did update");
-    if (prevState.attendedWorkshops !== this.state.attendedWorkshops) {
-      console.log("YAAAAAAAAY");
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("Component did update");
+  //   if (prevState.attendedWorkshops !== this.state.attendedWorkshops) {
+  //     console.log("YAAAAAAAAY");
+  //   }
+  // }
 
   toggleForm = () => {
     this.setState({ showForm: !this.state.showForm })
+  }
+
+  addOneWorkshop = (newWorkshop) => {
+    console.log("it works.");
+    const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
+    this.setState({hostedWorkshops: updatedWorkshops});
   }
 
   render() {
@@ -41,7 +57,17 @@ class Profile extends Component {
         <img src={this.props.user.img} />
         <p>Your Wallet: {this.props.user.wallet} </p>
         <button onClick={this.toggleForm}>Host your own workshop</button>
-        {this.state.showForm ? <AddWorkshop/> : null}
+        {this.state.showForm ? <AddWorkshop createWorkshop={this.addOneWorkshop}/> : null}
+
+        <h2>Your hosted workshops</h2>
+        {this.state.hostedWorkshops.map((workshop) => {
+          return (
+            <div key={workshop._id}>
+              <WorkshopCard workshop={workshop} />
+            </div>
+          );
+        })}
+
         <h2>Your upcoming workshops</h2>
         {this.state.attendedWorkshops.map((workshop) => {
           return (
