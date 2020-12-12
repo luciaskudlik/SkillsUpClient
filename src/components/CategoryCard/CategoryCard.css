@@ -1,8 +1,57 @@
-
-
 .categoryCard {
   height: 300px;
-  width: 80%;
+  width: 100%;
+  margin: 30px auto;
   border: 1px solid black;
+  text-align: center;
+  color: white;
 }
 
+#sports {
+  background-image: url("./../../images/sports.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#beauty {
+  background-image: url("./../../images/beauty.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#creativity {
+  background-image: url("./../../images/creativity.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#food-drink {
+  background-image: url("./../../images/cocktails.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#performing-arts {
+  background-image: url("./../../images/arts.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#languages {
+  background-image: url("./../../images/languages.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#other {
+  background-image: url("./../../images/other.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
