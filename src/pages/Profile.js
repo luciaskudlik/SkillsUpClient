@@ -70,6 +70,17 @@ class Profile extends Component {
       .catch((err) => console.log(err));
   };
 
+  editOneWorkshop = () => {
+    axios
+      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .then((response) => {
+        this.setState({
+          hostedWorkshops: response.data.hostedWorkshops,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return (
       <div>
@@ -92,6 +103,7 @@ class Profile extends Component {
                   showBin={true}
                   showPen={true}
                   delete={this.deleteOneWorkshop}
+                  edit={this.editOneWorkshop}
                 />
               </div>
             );
