@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./WorkshopCard.css";
 import EditWorkshop from "./../EditWorkshop/EditWorkshop";
+import { withAuth } from "../../context/auth-context";
 
 class WorkshopCard extends React.Component {
   state = {
@@ -20,7 +21,8 @@ class WorkshopCard extends React.Component {
   };
 
   handleCancel = () => {
-    const { userId } = this.props;
+    const userId = this.props.user._id;
+    console.log(userId);
 
     axios
       .post(
@@ -72,4 +74,4 @@ class WorkshopCard extends React.Component {
   }
 }
 
-export default WorkshopCard;
+export default withAuth(WorkshopCard);

@@ -4,7 +4,7 @@ import { withAuth } from "./../context/auth-context";
 import axios from "axios";
 
 class Signup extends Component {
-  state = { username: "", img: "", email: "", password: "" };
+  state = { username: "", img: "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1214428300?b=1&k=6&m=1214428300&s=612x612&w=0&h=kMXMpWVL6mkLu0TN-9MJcEUx1oSWgUq8-Ny6Wszv_ms=", email: "", password: "" };
 
   handleFormSubmit = (event) => {
     event.preventDefault();

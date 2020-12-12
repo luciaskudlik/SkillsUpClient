@@ -118,7 +118,6 @@ class Profile extends Component {
                 <WorkshopCard
                   workshop={workshop}
                   showCross={true}
-                  userId={this.props.user._id}
                 />
               </div>
             );
