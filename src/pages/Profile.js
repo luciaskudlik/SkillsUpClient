@@ -42,7 +42,7 @@ class Profile extends Component {
     this.setState({ showForm: !this.state.showForm });
   };
 
-  addOneWorkshop = (newWorkshop) => {
+  addOneWorkshop = () => {
     // console.log("it works.");
     // const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
     // this.setState({ hostedWorkshops: updatedWorkshops });
@@ -112,10 +112,6 @@ class Profile extends Component {
             );
           })
           .reverse()}
-
-        {/* 
-        <h2>Welcome {this.props.user ? this.props.user.username : null }</h2> 
-        */}
       </div>
     );
   }

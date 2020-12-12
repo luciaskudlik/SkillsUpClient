@@ -32,7 +32,8 @@ class AddWorkshop extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Buttton submitted");
+    console.log("Button submitted");
+
     const {
       title,
       img,
@@ -65,22 +66,22 @@ class AddWorkshop extends React.Component {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log("sent to DB", response.data);
+        //console.log("sent to DB", response.data);
         this.props.createWorkshop();
       })
       .catch((err) => console.log(err));
 
     //clear form
-    this.setState({
-      title: "",
-      description: "",
-      category: "",
-      date: "",
-      length: "",
-      credits: "",
-      maxParticipants: "",
-      location: "",
-    });
+    // this.setState({
+    //   title: "",
+    //   description: "",
+    //   category: "",
+    //   date: "",
+    //   length: "",
+    //   credits: "",
+    //   maxParticipants: "",
+    //   location: "",
+    // });
   };
 
   handleFileUpload = (e) => {
