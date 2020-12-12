@@ -9,6 +9,7 @@ class WorkshopCard extends React.Component {
       .delete(`http://localhost:5000/api/workshops/${this.props.workshop._id}`)
       .then((response) => {
         console.log("SUCCESSFULLY DELETED");
+        this.props.delete();
       })
       .catch((err) => console.log(err));
   };

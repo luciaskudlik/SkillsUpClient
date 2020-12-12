@@ -66,7 +66,7 @@ class AddWorkshop extends React.Component {
       )
       .then((response) => {
         console.log("sent to DB", response.data);
-        this.props.createWorkshop(response.data);
+        this.props.createWorkshop();
       })
       .catch((err) => console.log(err));
 

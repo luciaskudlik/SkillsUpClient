@@ -43,11 +43,23 @@ class Profile extends Component {
   };
 
   addOneWorkshop = (newWorkshop) => {
-    console.log("it works.");
-    const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
-    this.setState({ hostedWorkshops: updatedWorkshops });
-    this.toggleForm();
+    // console.log("it works.");
+    // const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
+    // this.setState({ hostedWorkshops: updatedWorkshops });
 
+    axios
+      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .then((response) => {
+        this.setState({
+          hostedWorkshops: response.data.hostedWorkshops,
+        });
+      })
+      .catch((err) => console.log(err));
+
+    this.toggleForm();
+  };
+
+  deleteOneWorkshop = () => {
     axios
       .get(`http://localhost:5000/api/user`, { withCredentials: true })
       .then((response) => {
@@ -79,6 +91,7 @@ class Profile extends Component {
                   workshop={workshop}
                   showBin={true}
                   showPen={true}
+                  delete={this.deleteOneWorkshop}
                 />
               </div>
             );
