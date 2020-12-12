@@ -3,7 +3,18 @@
   display: inline-block;
   width: 100% !important;
   margin: 0 !important;
+  background-color: #495464 !important;
+  
 
+}
+
+.navbar-brand {
+  color: #f4f4f2 !important;
+  letter-spacing: 2px;
+}
+
+.navbar-toggler {
+  outline: none;
 }
 
 .container-fluid {

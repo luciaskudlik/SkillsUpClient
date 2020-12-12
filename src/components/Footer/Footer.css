@@ -1,0 +1,21 @@
+#footer-div {
+  text-align: center;
+  background-color: #495464;
+  color: #f4f4f2;
+  letter-spacing: 3px;
+  height: 120px;
+}
+
+#disclaimer {
+  font-size: 5.1rem;
+}
+
+#footer-div p {
+  font-size: 0.7rem;
+  padding-top: 10px;
+}
+
+#footer-div i {
+  font-size: 0.8rem;
+  padding: 8px
+}

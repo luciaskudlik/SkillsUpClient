@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
         <div className="nav-left">
           <Link to={"/"} className="navbar-brand">
