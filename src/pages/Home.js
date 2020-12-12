@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoryCard from './../components/CategoryCard/CategoryCard';
+// import './../App.css';
 
 function Home() {
   return (

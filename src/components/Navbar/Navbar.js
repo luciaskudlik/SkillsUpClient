@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth-context";
+import './Navbar.css';
 
 class Navbar extends Component {
   render() {
@@ -8,9 +9,12 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
+        <div className="nav-left">
           <Link to={"/"} className="navbar-brand">
-            SkillsUp
-          </Link>
+            SkillsUp 
+          </Link> 
+          { this.props.user ? <img src={this.props.user.img} /> : null}
+        </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -43,8 +47,7 @@ class Navbar extends Component {
                   <Link onClick={this.props.logout} className="nav-link">
                     Logout
                   </Link>
-                  <p>{this.props.user && this.props.user.username}</p>
-                  <img src={this.props.user.img} />
+                  
                 </>
               ) : (
                 <>
