@@ -23,9 +23,9 @@ class AddWorkshop extends React.Component {
       value = !this.state[name];
     }
 
-    // if (name === "credits") {
-    //   this.setState({ credits: this.setState.length * 2 });
-    // }
+    if (name === "length") {
+      this.setState({ credits: Math.round((value / 60) * 10) });
+    }
 
     this.setState({ [name]: value });
   };
@@ -116,6 +116,7 @@ class AddWorkshop extends React.Component {
           placeholder="Workshop"
           value={this.state.title}
           onChange={this.handleInput}
+          required
         />
         <label>Upload an Image</label>
         <input name="img" type="file" onChange={this.handleFileUpload}></input>
@@ -132,6 +133,7 @@ class AddWorkshop extends React.Component {
           placeholder="description"
           value={this.state.description}
           onChange={this.handleInput}
+          required
         />
         <div>
           <label for="sports">Sports</label>
@@ -141,6 +143,7 @@ class AddWorkshop extends React.Component {
             id="sports"
             value="Sports"
             onChange={this.handleInput}
+            required
           />
 
           <label for="beauty">Beauty</label>
@@ -210,21 +213,23 @@ class AddWorkshop extends React.Component {
           placeholder="duration"
           value={this.state.length}
           onChange={this.handleInput}
+          required
         />
         <p>Price: {this.state.credits}</p>
-        <input
+        {/* <input
           name="credits"
           type="number"
           placeholder="credits"
           value={this.state.credits}
           onChange={this.handleInput}
-        />
+        /> */}
         <input
           type="number"
           name="maxParticipants"
           placeholder="max number of participants"
           value={this.state.maxParticipants}
           onChange={this.handleInput}
+          required
         />
         <textarea
           type="text"
@@ -232,6 +237,7 @@ class AddWorkshop extends React.Component {
           placeholder="location"
           value={this.state.location}
           onChange={this.handleInput}
+          required
         />
 
         <button type="submit"> Edit your workshop </button>
