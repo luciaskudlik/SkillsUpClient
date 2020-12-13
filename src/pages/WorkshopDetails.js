@@ -15,6 +15,7 @@ class WorkshopDetails extends React.Component {
     length: 0,
     credits: 0,
     participants: [],
+    maxParticipants: 0,
     host: " ",
     location: " ",
     successMessage: " ",
@@ -36,6 +37,7 @@ class WorkshopDetails extends React.Component {
           length,
           credits,
           participants,
+          maxParticipants,
           host,
           location,
         } = theWorkshop;
@@ -48,6 +50,7 @@ class WorkshopDetails extends React.Component {
           length,
           credits,
           participants,
+          maxParticipants,
           host,
           location,
         });
@@ -136,9 +139,18 @@ class WorkshopDetails extends React.Component {
         {this.state.participants.map((person) => {
           return <img src={person.img} alt=""/>
         })}
-        <button type="submit" onClick={this.handleSubmit}>
+
+        {this.state.participants.length === this.state.maxParticipants ? (
+          <p>this course is full!!!!!</p>
+        ) : (
+          <button type="submit" onClick={this.handleSubmit}>
           Sign up for Workshop!
-        </button>
+          </button>
+        ) }
+
+        
+
+
         { this.state.showErrorMessage ? <p>You either don't have enough credits or have already signed up to this workshop</p> : null}
         <p>{this.state.successMessage}</p>
       </div>
