@@ -17,3 +17,19 @@
   font-size: 1.5rem;
   color: #f4f4f2;
 }
+
+#profile-image {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+
+.participant-img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 100%;
+  padding: 2px;
+}

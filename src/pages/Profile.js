@@ -92,7 +92,7 @@ class Profile extends Component {
       <div>
         <h1>Profile Page</h1>
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
-        <img src={this.props.user.img} />
+        <img id="profile-image" src={this.props.user.img} />
         <p>Your Wallet: {this.state.wallet} </p>
         <button onClick={this.toggleForm}>Host your own workshop</button>
         {this.state.showForm ? (

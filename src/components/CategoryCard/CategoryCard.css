@@ -11,6 +11,10 @@
   -moz-box-shadow: 4px 4px 5px 1px rgba(73,84,100,0.86);
 }
 
+.categoryCard:hover {
+  box-shadow: none;
+}
+
 .categoryCard h3 {
   font-size: 1.8rem;
   letter-spacing: 4px;

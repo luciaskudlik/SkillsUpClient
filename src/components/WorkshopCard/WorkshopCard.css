@@ -1,14 +1,59 @@
 .workshop-card {
-  display: flex;
-  width: 80%;
-  height: 200px;
-  border: 1px solid black;
-  margin: 20px;
+  width: 90%;
+  height: 180px;
+  border: 1px solid #e8e8e8;
+  border-radius: 7px;
+  margin: 20px auto;
+  background-color: #e8e8e8;
+  box-shadow: 4px 4px 5px 1px rgba(73, 84, 100, 0.5);
+  -webkit-box-shadow: 4px 4px 5px 1px rgba(73, 84, 100, 0.5);
+  -moz-box-shadow: 4px 4px 5px 1px rgba(73, 84, 100, 0.5);
+}
 
+.card-left {
+  display: flex;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.icons button {
+  background-color: #bbbfca;
+  border: none;
+  color: #495464;
+  height: 30px;
+  width: 110px;
 }
 
 .workshop-card img {
-  width: 30%;
+  width: 100px;
   height: 100px;
   object-fit: cover;
+}
+
+.card-image {
+  padding: 10px;
+}
+
+.workshop-info {
+  display: flex;
+}
+
+.credits {
+  color: #495464;
+  font-weight: 600;
+}
+
+.card-center {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.workshop-info h3 {
+  font-size: 20px;
+  letter-spacing: 2px;
 }

@@ -53,23 +53,33 @@ class WorkshopCard extends React.Component {
     return (
       <div>
         <div className="workshop-card">
-          <img className="workshop-card-img" src={workshop.img} alt="" />
-
-          <h3>{workshop.title}</h3>
-          <p>{workshop.credits}</p>
-          <Link to={`/workshops/${workshop._id}`}>
-            <button>Learn More</button>
-          </Link>
-          <div onClick={this.handleDelete}>
-            {this.props.showBin ? <i class="fas fa-trash-alt"></i> : null}
+          <div className="card-left">
+            <div className="card-image">
+              <img className="workshop-card-img" src={workshop.img} alt="" />
+            </div>
+            <div className="workshop-info">
+              <div className="card-center">
+                <h3>{workshop.title}</h3>
+                <p className="credits">{workshop.credits} credits</p>
+              </div>
+            </div>
           </div>
-          <div onClick={this.handleEdit}>
-            {this.props.showPen ? <i class="fas fa-pen"></i> : null}
-          </div>
-          <div onClick={this.handleCancel}>
-            {this.props.showCross ? <i class="fas fa-times"></i> : null}
+          <div className="icons">
+            <div onClick={this.handleDelete}>
+              {this.props.showBin ? <i className="fas fa-trash-alt"></i> : null}
+            </div>
+            <div onClick={this.handleEdit}>
+              {this.props.showPen ? <i className="fas fa-pen"></i> : null}
+            </div>
+            <div onClick={this.handleCancel}>
+              {this.props.showCross ? <i className="fas fa-times"></i> : null}
+            </div>
+            <Link to={`/workshops/${workshop._id}`}>
+              <button>Learn More</button>
+            </Link>
           </div>
         </div>
+
         <div>
           {this.state.showEditForm ? (
             <EditWorkshop workshop={workshop} edit={this.handleEdit} />

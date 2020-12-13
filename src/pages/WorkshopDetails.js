@@ -131,10 +131,12 @@ class WorkshopDetails extends React.Component {
         <p>price: {this.state.credits} credits</p>
         <p>{this.state.location}</p>
 
+        <h4>These event is hosted by:</h4>
+
         <h4>These people are already signed up:</h4>
 
         {this.state.participants.map((person) => {
-          return <img src={person.img} alt="" />;
+          return <img className="participant-img" src={person.img} alt="" />;
         })}
 
         {this.state.participants.length === this.state.maxParticipants ? (

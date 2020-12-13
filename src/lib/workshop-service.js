@@ -1,42 +1,36 @@
 import axios from "axios";
 
-
-// THIS IS AN EXAMPLE THAT YOU CAN USE 
+// THIS IS AN EXAMPLE THAT YOU CAN USE
 // TO CREATE A SERVICE FOR YOUR AXIOS CALLS
-class ExampleService {
+class WorkshopService {
   constructor() {
-    // this.api  is a reusable base of the request containing the base url (baseURL) 
+    // this.api  is a reusable base of the request containing the base url (baseURL)
     // of the API and the options ( `withCredentials: true` )
-    this.api = axios.create({        
+    this.api = axios.create({
       baseURL: "http://localhost:5000/api",
-      withCredentials: true
+      withCredentials: true,
     });
   }
 
-  getAll = () => {
-    const pr = this.api.get('/example')
-
-    return pr;
-  }
+  getAllWorkshops = () => {};
 
   getOne = (id) => {
-    const pr = this.api.get(`/example/${id}`)
+    const pr = this.api.get(`/example/${id}`);
 
     return pr;
-  }
+  };
 
   create = (data) => {
-    const pr = this.api.post(`/example/${id}`, data )
+    const pr = this.api.post(`/example/${id}`, data);
 
     return pr;
-  }
+  };
 
   deleteOne = (id) => {
-    const pr = this.api.delete(`/example/${id}` )
+    const pr = this.api.delete(`/example/${id}`);
 
     return pr;
-  }
-
+  };
 }
 
 // Create instance (object) containing all axios calls as methods
