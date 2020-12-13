@@ -11,8 +11,14 @@ class WorkshopCard extends React.Component {
   };
 
   handleDelete = () => {
+    const userId = this.props.user._id;
+    console.log("USERID", userId);
     axios
-      .delete(`http://localhost:5000/api/workshops/${this.props.workshop._id}`)
+      .delete(
+        `http://localhost:5000/api/workshops/${this.props.workshop._id}`,
+        { userId },
+        { withCredentials: true }
+      )
       .then((response) => {
         console.log("SUCCESSFULLY DELETED");
         this.props.delete();

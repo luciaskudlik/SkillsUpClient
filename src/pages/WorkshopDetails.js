@@ -87,16 +87,16 @@ class WorkshopDetails extends React.Component {
         return workshop._id === this.props.match.params.id;
       });
 
-      if (wallet < this.state.credits) {
+      if (alreadySignedUp.length > 0) {
+        this.setState({
+          showErrorMessage: true,
+          errorMessage: "You've already signed up for this workshop.",
+        });
+      } else if (wallet < this.state.credits) {
         this.setState({
           showErrorMessage: true,
           errorMessage:
             "You don't have enough credit points to sign up for this event. Host your own workshop to earn more credits.",
-        });
-      } else if (alreadySignedUp.length > 0) {
-        this.setState({
-          showErrorMessage: true,
-          errorMessage: "You've already signed up for this workshop.",
         });
       } else {
         const { id } = this.props.match.params;

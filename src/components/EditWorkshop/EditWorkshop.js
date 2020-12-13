@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { withAuth } from "./../../context/auth-context";
 
-class AddWorkshop extends React.Component {
+class EditWorkshop extends React.Component {
   state = {
     title: this.props.workshop.title,
     img: this.props.workshop.img,
@@ -46,8 +46,6 @@ class AddWorkshop extends React.Component {
       location,
     } = this.state;
 
-   
-
     const userId = this.props.user._id;
 
     axios
@@ -72,8 +70,6 @@ class AddWorkshop extends React.Component {
         this.props.edit();
       })
       .catch((err) => console.log(err));
-
-
   };
 
   handleFileUpload = (e) => {
@@ -238,4 +234,4 @@ class AddWorkshop extends React.Component {
   }
 }
 
-export default withAuth(AddWorkshop);
+export default withAuth(EditWorkshop);

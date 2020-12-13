@@ -69,6 +69,7 @@ class Profile extends Component {
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
+          wallet: response.data.wallet,
         });
       })
       .catch((err) => console.log(err));
