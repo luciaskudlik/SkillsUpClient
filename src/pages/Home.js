@@ -9,7 +9,8 @@ class Home extends React.Component {
 
   state = {
     workshopList: [],
-    filteredWorkshops: []
+    filteredWorkshops: [],
+    showErrorMessage: false
   }
 
   componentDidMount = () => {
@@ -32,8 +33,17 @@ class Home extends React.Component {
         const searchInput = input.toLowerCase();
         return workshopName.includes(searchInput);
       })
-      console.log(filtered);
+      
+      if (filtered.length === 0) {
+        this.setState({showErrorMessage: true})
+      }
+
       this.setState({filteredWorkshops: filtered})
+
+      if (input === '') {
+        this.setState({ filteredWorkshops: [], showErrorMessage: false})
+      }
+
   }
 
 
@@ -47,7 +57,7 @@ class Home extends React.Component {
         <SearchBar filterWorkshops={this.filterWorkshops} />
 
         
-        
+        { this.state.showErrorMessage ? <p>error message</p> : null}
         {this.state.filteredWorkshops.map((workshop) => {
           return (
             <WorkshopCard workshop={workshop}/>
