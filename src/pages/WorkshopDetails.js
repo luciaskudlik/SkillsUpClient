@@ -6,6 +6,7 @@ import moment from "moment";
 class WorkshopDetails extends React.Component {
   state = {
     wallet: 0,
+    attendedWorkshops: [],
     title: " ",
     img: " ",
     description: " ",
@@ -62,7 +63,8 @@ class WorkshopDetails extends React.Component {
         .get(`http://localhost:5000/api/user`, { withCredentials: true })
         .then((response) => {
           this.setState({
-            wallet: response.data.wallet
+            wallet: response.data.wallet,
+            attendedWorkshops: response.data.attendedWorkshops
           });
         })
         .catch((err) => console.log(err));
@@ -77,9 +79,15 @@ class WorkshopDetails extends React.Component {
 
     if (this.props.user) {
       const {wallet} = this.state;
+      const {attendedWorkshops} = this.state;
+      console.log("attendedn workshop", attendedWorkshops)
       console.log(wallet);
 
-      if (wallet < this.state.credits) {
+      const alreadySignedUp = attendedWorkshops.filter((workshop) => {
+        return workshop._id === this.props.match.params.id;
+      })
+
+      if (wallet < this.state.credits || alreadySignedUp.length > 0) {
         this.setState({showErrorMessage: true})
       } else {
         const { id } = this.props.match.params;
@@ -131,7 +139,7 @@ class WorkshopDetails extends React.Component {
         <button type="submit" onClick={this.handleSubmit}>
           Sign up for Workshop!
         </button>
-        { this.state.showErrorMessage ? <p>"not enough credits</p> : null}
+        { this.state.showErrorMessage ? <p>You either don't have enough credits or have already signed up to this workshop</p> : null}
         <p>{this.state.successMessage}</p>
       </div>
     );
