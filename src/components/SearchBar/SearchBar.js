@@ -26,6 +26,7 @@ class SearchBar extends React.Component {
         value={this.state.search}
         onChange={this.handleInput}
         />
+        
       </div>
     )
   }

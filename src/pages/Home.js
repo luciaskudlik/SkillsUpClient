@@ -2,12 +2,40 @@ import React from 'react';
 import CategoryCard from './../components/CategoryCard/CategoryCard';
 import './../App.css';
 import SearchBar from './../components/SearchBar/SearchBar'
+import axios from 'axios';
+import WorkshopCard from '../components/WorkshopCard/WorkshopCard';
 
 class Home extends React.Component {
 
-  filterWorkshops = (input) => {
-    
+  state = {
+    workshopList: [],
+    filteredWorkshops: []
   }
+
+  componentDidMount = () => {
+    axios
+    .get('http://localhost:5000/api/workshops')
+    .then((response) => {
+      this.setState({
+        workshopList: response.data
+      });
+    })
+    .catch((err) => console.log(err));
+    console.log("workshop LIIISTTTTTT", this.state.workshopList);
+  }
+
+    filterWorkshops = (input) => {
+      //console.log("workshop LIIISTTTTTT", this.state.workshopList);
+
+      const filtered = this.state.workshopList.filter((workshop) => {
+        const workshopName = workshop.title.toLowerCase();
+        const searchInput = input.toLowerCase();
+        return workshopName.includes(searchInput);
+      })
+      console.log(filtered);
+      this.setState({filteredWorkshops: filtered})
+  }
+
 
   render() {
     return (
@@ -17,6 +45,15 @@ class Home extends React.Component {
       </div>
 
         <SearchBar filterWorkshops={this.filterWorkshops} />
+
+        
+        
+        {this.state.filteredWorkshops.map((workshop) => {
+          return (
+            <WorkshopCard workshop={workshop}/>
+          )
+        })}
+
   
         
         <CategoryCard category="Sports" id="sports"/>
