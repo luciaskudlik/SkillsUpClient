@@ -1,20 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth-context";
-import './Navbar.css';
+import "./Navbar.css";
 
 class Navbar extends Component {
+  handleDayMode = () => {
+    this.props.setDayMode();
+  };
+
+  handleNightMode = () => {
+    this.props.setNightMode();
+  };
+
   render() {
     // const { user, logout, isLoggedin } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-        <div className="nav-left">
-          <Link to={"/"} className="navbar-brand">
-            SkillsUp 
-          </Link> 
-          { this.props.user ? <img src={this.props.user.img} /> : null}
-        </div>
+          <div className="nav-left">
+            <Link to={"/"} className="navbar-brand">
+              SkillsUp
+            </Link>
+            {this.props.user ? <img src={this.props.user.img} /> : null}
+
+            <button id="sun-btn" onClick={this.handleDayMode}>
+              <i class="fas fa-sun"></i>
+            </button>
+            <button id="moon-btn" onClick={this.handleNightMode}>
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -47,7 +62,6 @@ class Navbar extends Component {
                   <Link onClick={this.props.logout} className="nav-link">
                     Logout
                   </Link>
-                  
                 </>
               ) : (
                 <>

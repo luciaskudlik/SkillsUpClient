@@ -4,7 +4,13 @@ import { withAuth } from "./../context/auth-context";
 import axios from "axios";
 
 class Signup extends Component {
-  state = { username: "", img: "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1214428300?b=1&k=6&m=1214428300&s=612x612&w=0&h=kMXMpWVL6mkLu0TN-9MJcEUx1oSWgUq8-Ny6Wszv_ms=", email: "", password: "" };
+  state = {
+    username: "",
+    img:
+      "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1214428300?b=1&k=6&m=1214428300&s=612x612&w=0&h=kMXMpWVL6mkLu0TN-9MJcEUx1oSWgUq8-Ny6Wszv_ms=",
+    email: "",
+    password: "",
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -44,52 +50,60 @@ class Signup extends Component {
   render() {
     const { username, email, password } = this.state;
     return (
-      <div>
+      <div id="signup-page">
         <h1>Sign Up</h1>
 
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
+          <div>
+            <span>
+              <img
+                style={{ width: "100px" }}
+                src={this.state.img && this.state.img}
+                alt=""
+              ></img>
+            </span>
+            <input
+              name="img"
+              type="file"
+              onChange={this.handleFileUpload}
+            ></input>
+          </div>
 
-          <label>Image</label>
-          <input
-            name="img"
-            type="file"
-            onChange={this.handleFileUpload}
-          ></input>
-          <span>
-            <img
-              style={{ width: "100px" }}
-              src={this.state.img && this.state.img}
-              alt=""
-            ></img>
-          </span>
+          <div>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+              placeholder="username"
+            />
+          </div>
 
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
+          <div>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              placeholder="email"
+            />
+          </div>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-
-          <input type="submit" value="Signup" />
+          <div>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              placeholder="password"
+            />
+          </div>
+          <div>
+            <input type="submit" value="Signup" />
+          </div>
         </form>
 
-        <p>Already have account?</p>
+        <p>Already have an account?</p>
         <Link to={"/login"}> Login</Link>
       </div>
     );

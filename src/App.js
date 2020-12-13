@@ -17,10 +17,29 @@ import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 
 class App extends Component {
+  state = {
+    backgroundColor: "white",
+    color: "black",
+  };
+
+  setDayMode = () => {
+    this.setState({ backgroundColor: "white", color: "black" });
+  };
+
+  setNightMode = () => {
+    this.setState({ backgroundColor: "black", color: "white" });
+  };
+
   render() {
     return (
-      <div className="App">
-        <Navbar />
+      <div
+        className="App"
+        style={{
+          backgroundColor: this.state.backgroundColor,
+          color: this.state.color,
+        }}
+      >
+        <Navbar setNightMode={this.setNightMode} setDayMode={this.setDayMode} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/instructions" component={Instructions} />
