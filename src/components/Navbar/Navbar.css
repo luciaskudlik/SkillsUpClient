@@ -1,24 +1,25 @@
-
 .navbar {
   display: inline-block;
   width: 100% !important;
   margin: 0 !important;
   background-color: #495464 !important;
-  
 }
 
 #sun-btn {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   border-color: #495464;
-  
+  border: none;
+  outline: none;
 }
 
 #moon-btn {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   border-color: #495464;
-  
+  outline: none;
+  border: none;
+  border-left: 1px solid;
 }
 
 .navbar-brand {

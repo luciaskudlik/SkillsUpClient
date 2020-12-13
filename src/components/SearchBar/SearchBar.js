@@ -1,4 +1,5 @@
 import React from 'react';
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
 
@@ -18,11 +19,11 @@ class SearchBar extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="search-container">
         <input type="text" 
         className="input search-bar" 
         name="search" 
-        placeholder="search" 
+        placeholder="What fascinates you?" 
         value={this.state.search}
         onChange={this.handleInput}
         />
