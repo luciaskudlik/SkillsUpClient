@@ -46,6 +46,8 @@ class AddWorkshop extends React.Component {
       location,
     } = this.state;
 
+   
+
     const userId = this.props.user._id;
 
     axios
@@ -71,17 +73,7 @@ class AddWorkshop extends React.Component {
       })
       .catch((err) => console.log(err));
 
-    //clear form
-    // this.setState({
-    //   title: "",
-    //   description: "",
-    //   category: "",
-    //   date: "",
-    //   length: "",
-    //   credits: "",
-    //   maxParticipants: "",
-    //   location: "",
-    // });
+
   };
 
   handleFileUpload = (e) => {

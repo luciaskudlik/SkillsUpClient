@@ -19,7 +19,7 @@ class Profile extends Component {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
           attendedWorkshops: response.data.attendedWorkshops,
-          wallet: response.data.wallet
+          wallet: response.data.wallet,
         });
       })
       .catch((err) => console.log(err));
@@ -55,7 +55,7 @@ class Profile extends Component {
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
-          wallet: response.data.wallet
+          wallet: response.data.wallet,
         });
       })
       .catch((err) => console.log(err));
@@ -80,6 +80,7 @@ class Profile extends Component {
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
+          wallet: response.data.wallet,
         });
       })
       .catch((err) => console.log(err));
@@ -119,10 +120,7 @@ class Profile extends Component {
           .map((workshop) => {
             return (
               <div key={workshop._id}>
-                <WorkshopCard
-                  workshop={workshop}
-                  showCross={true}
-                />
+                <WorkshopCard workshop={workshop} showCross={true} />
               </div>
             );
           })
