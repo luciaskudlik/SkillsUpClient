@@ -6,6 +6,7 @@ import { withAuth } from "../context/auth-context";
 
 class Profile extends Component {
   state = {
+    wallet: 0,
     attendedWorkshops: [],
     hostedWorkshops: [],
     showForm: false,
@@ -17,18 +18,20 @@ class Profile extends Component {
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
+          attendedWorkshops: response.data.attendedWorkshops,
+          wallet: response.data.wallet
         });
       })
       .catch((err) => console.log(err));
 
-    axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
-      .then((response) => {
-        this.setState({
-          attendedWorkshops: response.data.attendedWorkshops,
-        });
-      })
-      .catch((err) => console.log(err));
+    // axios
+    //   .get(`http://localhost:5000/api/user`, { withCredentials: true })
+    //   .then((response) => {
+    //     this.setState({
+    //       attendedWorkshops: response.data.attendedWorkshops,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -52,6 +55,7 @@ class Profile extends Component {
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
+          wallet: response.data.wallet
         });
       })
       .catch((err) => console.log(err));
@@ -87,7 +91,7 @@ class Profile extends Component {
         <h1>Profile Page</h1>
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
         <img src={this.props.user.img} />
-        <p>Your Wallet: {this.props.user.wallet} </p>
+        <p>Your Wallet: {this.state.wallet} </p>
         <button onClick={this.toggleForm}>Host your own workshop</button>
         {this.state.showForm ? (
           <AddWorkshop createWorkshop={this.addOneWorkshop} />

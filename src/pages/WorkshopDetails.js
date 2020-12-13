@@ -5,6 +5,7 @@ import moment from "moment";
 
 class WorkshopDetails extends React.Component {
   state = {
+    wallet: 0,
     title: " ",
     img: " ",
     description: " ",
@@ -16,6 +17,7 @@ class WorkshopDetails extends React.Component {
     host: " ",
     location: " ",
     successMessage: " ",
+    showErrorMessage: false
   };
 
   getSingleWorkshop = () => {
@@ -54,14 +56,33 @@ class WorkshopDetails extends React.Component {
 
   componentDidMount() {
     this.getSingleWorkshop();
+
+    
+      axios
+        .get(`http://localhost:5000/api/user`, { withCredentials: true })
+        .then((response) => {
+          this.setState({
+            wallet: response.data.wallet
+          });
+        })
+        .catch((err) => console.log(err));
+  
+    
   }
 
   handleSubmit = () => {
     console.log("BUTTON CLICKED");
     const { id } = this.props.match.params;
+    
 
     if (this.props.user) {
-      const { id } = this.props.match.params;
+      const {wallet} = this.state;
+      console.log(wallet);
+
+      if (wallet < this.state.credits) {
+        this.setState({showErrorMessage: true})
+      } else {
+        const { id } = this.props.match.params;
       const userId = this.props.user._id;
       console.log(id);
       axios
@@ -73,10 +94,20 @@ class WorkshopDetails extends React.Component {
           });
         })
         .catch((error) => console.log("ERROR ", error));
+      }
+
+
     } else {
       this.props.history.push("/login");
     }
+
+
+
+
   };
+
+
+
 
   render() {
     const date = moment(this.state.date).format("LLLL");
@@ -100,6 +131,7 @@ class WorkshopDetails extends React.Component {
         <button type="submit" onClick={this.handleSubmit}>
           Sign up for Workshop!
         </button>
+        { this.state.showErrorMessage ? <p>"not enough credits</p> : null}
         <p>{this.state.successMessage}</p>
       </div>
     );
