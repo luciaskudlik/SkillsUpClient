@@ -19,7 +19,8 @@ class WorkshopDetails extends React.Component {
     host: " ",
     location: " ",
     successMessage: " ",
-    showErrorMessage: false
+    showErrorMessage: false,
+    errorMessage: "",
   };
 
   getSingleWorkshop = () => {
@@ -61,64 +62,60 @@ class WorkshopDetails extends React.Component {
   componentDidMount() {
     this.getSingleWorkshop();
 
-    
-      axios
-        .get(`http://localhost:5000/api/user`, { withCredentials: true })
-        .then((response) => {
-          this.setState({
-            wallet: response.data.wallet,
-            attendedWorkshops: response.data.attendedWorkshops
-          });
-        })
-        .catch((err) => console.log(err));
-  
-    
+    axios
+      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .then((response) => {
+        this.setState({
+          wallet: response.data.wallet,
+          attendedWorkshops: response.data.attendedWorkshops,
+        });
+      })
+      .catch((err) => console.log(err));
   }
 
   handleSubmit = () => {
     console.log("BUTTON CLICKED");
     const { id } = this.props.match.params;
-    
 
     if (this.props.user) {
-      const {wallet} = this.state;
-      const {attendedWorkshops} = this.state;
-      console.log("attendedn workshop", attendedWorkshops)
+      const { wallet } = this.state;
+      const { attendedWorkshops } = this.state;
+      console.log("attendedn workshop", attendedWorkshops);
       console.log(wallet);
 
       const alreadySignedUp = attendedWorkshops.filter((workshop) => {
         return workshop._id === this.props.match.params.id;
-      })
+      });
 
-      if (wallet < this.state.credits || alreadySignedUp.length > 0) {
-        this.setState({showErrorMessage: true})
+      if (wallet < this.state.credits) {
+        this.setState({
+          showErrorMessage: true,
+          errorMessage:
+            "You don't have enough credit points to sign up for this event. Host your own workshop to earn more credits.",
+        });
+      } else if (alreadySignedUp.length > 0) {
+        this.setState({
+          showErrorMessage: true,
+          errorMessage: "You've already signed up for this workshop.",
+        });
       } else {
         const { id } = this.props.match.params;
-      const userId = this.props.user._id;
-      console.log(id);
-      axios
-        .post(`http://localhost:5000/api/workshops/signup/${id}`, { userId })
-        .then((res) => {
-          console.log(res);
-          this.setState({
-            successMessage: "You successfully signed up for this workshop.",
-          });
-        })
-        .catch((error) => console.log("ERROR ", error));
+        const userId = this.props.user._id;
+        console.log(id);
+        axios
+          .post(`http://localhost:5000/api/workshops/signup/${id}`, { userId })
+          .then((res) => {
+            console.log(res);
+            this.setState({
+              successMessage: "You successfully signed up for this workshop.",
+            });
+          })
+          .catch((error) => console.log("ERROR ", error));
       }
-
-
     } else {
       this.props.history.push("/login");
     }
-
-
-
-
   };
-
-
-
 
   render() {
     const date = moment(this.state.date).format("LLLL");
@@ -137,21 +134,18 @@ class WorkshopDetails extends React.Component {
         <h4>These people are already signed up:</h4>
 
         {this.state.participants.map((person) => {
-          return <img src={person.img} alt=""/>
+          return <img src={person.img} alt="" />;
         })}
 
         {this.state.participants.length === this.state.maxParticipants ? (
           <p>this course is full!!!!!</p>
         ) : (
           <button type="submit" onClick={this.handleSubmit}>
-          Sign up for Workshop!
+            Sign up for Workshop!
           </button>
-        ) }
+        )}
 
-        
-
-
-        { this.state.showErrorMessage ? <p>You either don't have enough credits or have already signed up to this workshop</p> : null}
+        {this.state.showErrorMessage ? <p>{this.state.errorMessage}</p> : null}
         <p>{this.state.successMessage}</p>
       </div>
     );
