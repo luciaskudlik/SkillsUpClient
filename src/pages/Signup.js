@@ -51,12 +51,14 @@ class Signup extends Component {
     const { username, email, password } = this.state;
     return (
       <div id="signup-page">
-        <h1>Sign Up</h1>
+        
 
         <form onSubmit={this.handleFormSubmit}>
+        <h1>Sign Up</h1>
           <div>
             <span>
               <img
+                id="uploaded-img"
                 style={{ width: "100px" }}
                 src={this.state.img && this.state.img}
                 alt=""
@@ -99,7 +101,7 @@ class Signup extends Component {
             />
           </div>
           <div>
-            <input type="submit" value="Signup" />
+            <input type="submit" value="Signup" id="signup-button" />
           </div>
         </form>
 

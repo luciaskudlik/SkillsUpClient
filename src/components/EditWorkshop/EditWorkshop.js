@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withAuth } from "./../../context/auth-context";
+import "./EditWorkshop.css";
 
 class EditWorkshop extends React.Component {
   state = {
@@ -97,7 +98,7 @@ class EditWorkshop extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} id="edit-form">
         <input
           name="title"
           type="text"
@@ -123,70 +124,84 @@ class EditWorkshop extends React.Component {
           onChange={this.handleInput}
           required
         />
-        <div>
-          <label for="sports">Sports</label>
-          <input
-            type="radio"
-            name="category"
-            id="sports"
-            value="Sports"
-            onChange={this.handleInput}
-            required
-          />
+        <div id="category-checkboxes">
+          <div className="checkbox-pair">
+            <label for="sports">Sports</label>
+            <input
+              type="radio"
+              name="category"
+              id="sports"
+              value="Sports"
+              onChange={this.handleInput}
+              required
+            />
+          </div>
 
-          <label for="beauty">Beauty</label>
-          <input
-            type="radio"
-            name="category"
-            id="beauty"
-            value="Beauty"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="beauty">Beauty</label>
+            <input
+              type="radio"
+              name="category"
+              id="beauty"
+              value="Beauty"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="languages">Languages</label>
-          <input
-            type="radio"
-            name="category"
-            id="languages"
-            value="Languages"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="languages">Languages</label>
+            <input
+              type="radio"
+              name="category"
+              id="languages"
+              value="Languages"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="creativity">Creativity</label>
-          <input
-            type="radio"
-            name="category"
-            id="creativity"
-            value="Creativity"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="creativity">Creativity</label>
+            <input
+              type="radio"
+              name="category"
+              id="creativity"
+              value="Creativity"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="food-drink">Food & Drink</label>
-          <input
-            type="radio"
-            name="category"
-            id="food-drink"
-            value="Food & Drink"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="food-drink">Food & Drink</label>
+            <input
+              type="radio"
+              name="category"
+              id="food-drink"
+              value="Food & Drink"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="performing-arts">Performing Arts</label>
-          <input
-            type="radio"
-            name="category"
-            id="performing-arts"
-            value="Performing Arts"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="performing-arts">Performing Arts</label>
+            <input
+              type="radio"
+              name="category"
+              id="performing-arts"
+              value="Performing Arts"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="other">Other</label>
-          <input
-            type="radio"
-            name="category"
-            id="other"
-            value="Other"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="other">Other</label>
+            <input
+              type="radio"
+              name="category"
+              id="other"
+              value="Other"
+              onChange={this.handleInput}
+            />
+          </div>
         </div>
 
         <input

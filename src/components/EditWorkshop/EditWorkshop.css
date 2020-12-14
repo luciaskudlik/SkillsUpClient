@@ -1,0 +1,44 @@
+#edit-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    background-color: #bbbfca;
+}
+
+#edit-form input {
+    background-color: #f4f4f2;
+    border: none;
+    border-radius: 3px;
+    width: 300px;
+    margin: 20px auto;
+
+}
+
+#edit-form textarea {
+    background-color: #f4f4f2;
+    border: none;
+    border-radius: 3px;
+    width: 300px;
+    margin: 20px auto;
+
+}
+
+#category-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-pair {
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#other {
+    width: 50px;
+}

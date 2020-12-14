@@ -5,6 +5,7 @@ import SearchBar from "./../components/SearchBar/SearchBar";
 import axios from "axios";
 import WorkshopCard from "../components/WorkshopCard/WorkshopCard";
 import { Link } from "react-router-dom";
+import WorkshopService from "./../lib/workshop-service";
 
 class Home extends React.Component {
   state = {
@@ -14,6 +15,9 @@ class Home extends React.Component {
   };
 
   componentDidMount = () => {
+    //const response = WorkshopService.getAllWorkshops();
+    
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
     axios
       .get("http://localhost:5000/api/workshops")
       .then((response) => {

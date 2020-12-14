@@ -12,31 +12,41 @@ class WorkshopService {
     });
   }
 
-  getAllWorkshops = () => {};
-
-  getOne = (id) => {
-    const pr = this.api.get(`/example/${id}`);
-
+  getAllWorkshops = () => {
+    const pr = this.api
+      .get("/workshops")
+      .then((response) => {
+        this.setState({
+          workshopList: response.data,
+        });
+      })
+      .catch((err) => console.log(err));
     return pr;
   };
 
-  create = (data) => {
-    const pr = this.api.post(`/example/${id}`, data);
+  //   getOne = (id) => {
+  //     const pr = this.api.get(`/example/${id}`);
 
-    return pr;
-  };
+  //     return pr;
+  //   };
 
-  deleteOne = (id) => {
-    const pr = this.api.delete(`/example/${id}`);
+  //   create = (data) => {
+  //     const pr = this.api.post(`/example/${id}`, data);
 
-    return pr;
-  };
+  //     return pr;
+  //   };
+
+  //   deleteOne = (id) => {
+  //     const pr = this.api.delete(`/example/${id}`);
+
+  //     return pr;
+  //   };
 }
 
 // Create instance (object) containing all axios calls as methods
-const exampleService = new ExampleService();
+const workshopService = new WorkshopService();
 
-export default exampleService;
+export default workshopService;
 
 // Service is a set of methods abstracted and placed into a class, out of which we create one instance.
 // In the above case, all axios request calls are abstracted into methods.
