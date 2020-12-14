@@ -16,7 +16,7 @@ class WorkshopDetails extends React.Component {
     credits: 0,
     participants: [],
     maxParticipants: 0,
-    host: " ",
+    host: {},
     location: " ",
     successMessage: " ",
     showErrorMessage: false,
@@ -121,34 +121,49 @@ class WorkshopDetails extends React.Component {
     const date = moment(this.state.date).format("LLLL");
 
     return (
-      <div>
-        <h1>WorkshopDetails Page</h1>
-        <h2>{this.state.title}</h2>
-        <img src={this.state.img} alt="" />
-        <p>{this.state.description}</p>
-        <p>{date}</p>
-        <p>{this.state.length} mins</p>
-        <p>price: {this.state.credits} credits</p>
-        <p>{this.state.location}</p>
+      <div id="details-container">
+        <p id="details-date">{date}</p>
+        <h2 id="workshop-title">{this.state.title}</h2>
+        <div id="details-img-container">
+          <img id="details-img" src={this.state.img} alt="" />
+        </div>
+        
+        <div id="info-card">
+          <p id="details-date"><i className="fas fa-calendar-alt"></i> {date}</p>
+          <p><i className="far fa-clock"></i> {this.state.length} mins</p>
+          <p><i className="fas fa-coins"></i> {this.state.credits} credits</p>
+          <p><i className="fas fa-map-marker-alt"></i> {this.state.location}</p>
+          { this.state.host ? (
+            <div id="host-div">
+              <h4>Hosted by:</h4>
+              <img className="participant-img" src={this.state.host.img} />
+              <p>{this.state.host.username}</p>
+            </div>
+            ) : null }
+        </div>
 
-        <h4>These event is hosted by:</h4>
+        <p id="details-description">{this.state.description}</p>
 
-        <h4>These people are already signed up:</h4>
+        
 
-        {this.state.participants.map((person) => {
-          return <img className="participant-img" src={person.img} alt="" />;
-        })}
+        
 
         {this.state.participants.length === this.state.maxParticipants ? (
           <p>this course is full!!!!!</p>
         ) : (
-          <button type="submit" onClick={this.handleSubmit}>
-            Sign up for Workshop!
+          <button id="signup-workshop-btn" type="submit" onClick={this.handleSubmit}>
+            Sign up for Workshop
           </button>
         )}
 
         {this.state.showErrorMessage ? <p>{this.state.errorMessage}</p> : null}
         <p>{this.state.successMessage}</p>
+
+        <h4 id="attendees">These people are already signed up:</h4>
+
+        {this.state.participants.map((person) => {
+          return <img className="participant-img" src={person.img} alt="" />;
+        })}
       </div>
     );
   }
