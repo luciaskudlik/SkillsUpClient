@@ -67,6 +67,18 @@ class Profile extends Component {
       .catch((err) => console.log(err));
   };
 
+  cancelOneWorkshop = () => {
+    axios
+      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .then((response) => {
+        this.setState({
+          attendedWorkshops: response.data.attendedWorkshops,
+          wallet: response.data.wallet,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     return (
       <div id="profile-page">
@@ -89,6 +101,7 @@ class Profile extends Component {
                   showPen={true}
                   delete={this.deleteOneWorkshop}
                   edit={this.editOneWorkshop}
+                  cancel={this.cancelOneWorkshop}
                 />
               </div>
             );

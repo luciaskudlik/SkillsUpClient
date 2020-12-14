@@ -12,9 +12,10 @@ class WorkshopCard extends React.Component {
 
   handleDelete = () => {
     const userId = this.props.user._id;
+    const user = this.props.user;
     console.log("USERID", userId);
     axios
-      .delete(
+      .post(
         `http://localhost:5000/api/workshops/${this.props.workshop._id}`,
         { userId },
         { withCredentials: true }
@@ -38,6 +39,7 @@ class WorkshopCard extends React.Component {
       )
       .then((response) => {
         console.log("SUCCESSFULLY CANCELLED");
+        this.props.cancel();
       })
       .catch((err) => console.log(err));
   };
