@@ -51,7 +51,7 @@ class EditWorkshop extends React.Component {
 
     axios
       .put(
-        `http://localhost:5000/api/workshops/${this.props.workshop._id}`,
+        `${process.env.REACT_APP_API_URL}/api/workshops/${this.props.workshop._id}`,
         {
           title,
           img,
@@ -83,7 +83,7 @@ class EditWorkshop extends React.Component {
     uploadData.append("img", file);
 
     axios
-      .post("http://localhost:5000/api/upload", uploadData, {
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
         withCredentials: true,
       })
       .then((response) => {

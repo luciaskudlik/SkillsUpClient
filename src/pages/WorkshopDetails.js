@@ -26,7 +26,7 @@ class WorkshopDetails extends React.Component {
   getSingleWorkshop = () => {
     const { id } = this.props.match.params;
     axios
-      .get(`http://localhost:5000/api/workshops/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/workshops/${id}`)
       .then((apiResponse) => {
         const theWorkshop = apiResponse.data;
         const {
@@ -63,7 +63,7 @@ class WorkshopDetails extends React.Component {
     this.getSingleWorkshop();
 
     axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
       .then((response) => {
         this.setState({
           wallet: response.data.wallet,
@@ -103,7 +103,7 @@ class WorkshopDetails extends React.Component {
         const userId = this.props.user._id;
         console.log(id);
         axios
-          .post(`http://localhost:5000/api/workshops/signup/${id}`, { userId })
+          .post(`${process.env.REACT_APP_API_URL}/api/workshops/signup/${id}`, { userId })
           .then((res) => {
             console.log(res);
             this.setState({

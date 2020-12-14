@@ -16,7 +16,7 @@ class WorkshopCard extends React.Component {
     console.log("USERID", userId);
     axios
       .post(
-        `http://localhost:5000/api/workshops/${this.props.workshop._id}`,
+        `${process.env.REACT_APP_API_URL}/api/workshops/${this.props.workshop._id}`,
         { userId },
         { withCredentials: true }
       )
@@ -33,7 +33,7 @@ class WorkshopCard extends React.Component {
 
     axios
       .post(
-        `http://localhost:5000/api/workshops/cancel/${this.props.workshop._id}`,
+        `${process.env.REACT_APP_API_URL}/api/workshops/cancel/${this.props.workshop._id}`,
         { userId },
         { withCredentials: true }
       )

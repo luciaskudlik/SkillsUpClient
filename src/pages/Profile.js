@@ -14,7 +14,7 @@ class Profile extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
@@ -31,7 +31,7 @@ class Profile extends Component {
 
   addOneWorkshop = () => {
     axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
@@ -45,7 +45,7 @@ class Profile extends Component {
 
   deleteOneWorkshop = () => {
     axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
@@ -57,7 +57,7 @@ class Profile extends Component {
 
   editOneWorkshop = () => {
     axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
       .then((response) => {
         this.setState({
           hostedWorkshops: response.data.hostedWorkshops,
@@ -68,8 +68,9 @@ class Profile extends Component {
   };
 
   cancelOneWorkshop = () => {
+    console.log("cancel funcito was called'")
     axios
-      .get(`http://localhost:5000/api/user`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
       .then((response) => {
         this.setState({
           attendedWorkshops: response.data.attendedWorkshops,
@@ -101,7 +102,6 @@ class Profile extends Component {
                   showPen={true}
                   delete={this.deleteOneWorkshop}
                   edit={this.editOneWorkshop}
-                  cancel={this.cancelOneWorkshop}
                 />
               </div>
             );
@@ -113,7 +113,7 @@ class Profile extends Component {
           .map((workshop) => {
             return (
               <div key={workshop._id}>
-                <WorkshopCard workshop={workshop} showCross={true} />
+                <WorkshopCard workshop={workshop} showCross={true} cancel={this.cancelOneWorkshop} />
               </div>
             );
           })

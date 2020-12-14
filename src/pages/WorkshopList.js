@@ -11,7 +11,7 @@ class WorkshopList extends React.Component {
 
   getWorkshopsByCategory = () => {
     const { category } = this.props.match.params;
-    axios.get(`http://localhost:5000/api/workshops/category/${category}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/workshops/category/${category}`)
       .then((apiResponse) => {
         this.setState({workshops: apiResponse.data});
       })

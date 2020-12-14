@@ -19,7 +19,7 @@ class Home extends React.Component {
     
     //CORRECT AXIOS CALL WITHOUT SERVICE!
     axios
-      .get("http://localhost:5000/api/workshops")
+      .get(`${process.env.REACT_APP_API_URL}/api/workshops`)
       .then((response) => {
         this.setState({
           workshopList: response.data,

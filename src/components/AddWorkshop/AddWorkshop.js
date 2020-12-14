@@ -50,7 +50,7 @@ class AddWorkshop extends React.Component {
 
     axios
       .post(
-        "http://localhost:5000/api/workshops",
+        `${process.env.REACT_APP_API_URL}/api/workshops`,
         {
           title,
           img,
@@ -94,7 +94,7 @@ class AddWorkshop extends React.Component {
     uploadData.append("img", file);
 
     axios
-      .post("http://localhost:5000/api/upload", uploadData, {
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
         withCredentials: true,
       })
       .then((response) => {
