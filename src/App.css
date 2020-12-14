@@ -55,7 +55,7 @@
   height: 40px;
   width: 180px;
   border-radius: 3px;
-  border-color:#495464;
+  border-color: #495464;
   color: #495464;
   background-color: #e8e8e8;
 }
@@ -71,6 +71,45 @@ h2.category-info {
 p.category-info {
   text-align: center;
   letter-spacing: 2px;
+}
+
+/********************************************Instrucions Page********************************************/
+
+#instructions-banner {
+  height: 250px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("./images/instructions-img.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+#instructions-banner h1 {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 170px 15px;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+
+#instructions-container {
+  margin: 20px;
+}
+
+#instructions-container h3 {
+  text-align: center;
+  color: #495464;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+#instructions-container li {
+  margin: 10px 5px;
+}
+
+#instructions-container ul {
+  margin-bottom: 30px;
 }
 
 /********************************************Profile/Details Page********************************************/
@@ -124,16 +163,15 @@ p.category-info {
   object-fit: cover;
 }
 
-#signup-page h1{
+#signup-page h1 {
   color: #495464;
   font-size: 30px;
   letter-spacing: 2px;
 }
 
-#signup-page p{
+#signup-page p {
   color: white;
 }
-
 
 #signup-page input {
   width: 200px;
@@ -186,7 +224,6 @@ p.category-info {
   color: #495464;
   font-size: 30px;
   letter-spacing: 2px;
-
 }
 
 #login-btn {

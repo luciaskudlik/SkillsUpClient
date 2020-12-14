@@ -19,15 +19,15 @@ import PrivateRoute from "./components/PrivateRoute";
 class App extends Component {
   state = {
     backgroundColor: "white",
-    color: "black",
+    color: "#262729",
   };
 
   setDayMode = () => {
-    this.setState({ backgroundColor: "white", color: "black" });
+    this.setState({ backgroundColor: "white", color: "#262729" });
   };
 
   setNightMode = () => {
-    this.setState({ backgroundColor: "black", color: "white" });
+    this.setState({ backgroundColor: "#262729", color: "white" });
   };
 
   render() {
