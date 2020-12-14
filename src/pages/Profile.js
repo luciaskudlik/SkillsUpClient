@@ -23,33 +23,13 @@ class Profile extends Component {
         });
       })
       .catch((err) => console.log(err));
-
-    // axios
-    //   .get(`http://localhost:5000/api/user`, { withCredentials: true })
-    //   .then((response) => {
-    //     this.setState({
-    //       attendedWorkshops: response.data.attendedWorkshops,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log("Component did update");
-  //   if (prevState.attendedWorkshops !== this.state.attendedWorkshops) {
-  //     console.log("YAAAAAAAAY");
-  //   }
-  // }
 
   toggleForm = () => {
     this.setState({ showForm: !this.state.showForm });
   };
 
   addOneWorkshop = () => {
-    // console.log("it works.");
-    // const updatedWorkshops = [newWorkshop, ...this.state.hostedWorkshops];
-    // this.setState({ hostedWorkshops: updatedWorkshops });
-
     axios
       .get(`http://localhost:5000/api/user`, { withCredentials: true })
       .then((response) => {
@@ -89,8 +69,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Profile Page</h1>
+      <div id="profile-page">
         <h2>Welcome {this.props.user && this.props.user.username}</h2>
         <img id="profile-image" src={this.props.user.img} />
         <p>Your Wallet: {this.state.wallet} </p>
