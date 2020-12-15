@@ -135,14 +135,14 @@ class Profile extends Component {
   render() {
     return (
       <div id="profile-page">
-        <h2>Welcome {this.props.user && this.props.user.username}</h2>
+        <p><i class="fas fa-coins"></i> {this.state.wallet} credits</p>
+        <h2 id="welcome-message">Welcome {this.props.user && this.props.user.username}</h2>
         <img id="profile-image" src={this.props.user.img} />
-        <p>Your Wallet: {this.state.wallet} </p>
         <button onClick={this.toggleForm}>Host your own workshop</button>
         {this.state.showForm ? (
           <AddWorkshop createWorkshop={this.addOneWorkshop} />
         ) : null}
-
+          
         <h2>Your hosted workshops</h2>
         {this.state.hostedWorkshops
           .map((workshop) => {

@@ -93,12 +93,13 @@ class WorkshopDetails extends React.Component {
   componentDidMount = () => {
     this.getSingleWorkshop();
 
-    workshopService.getUser().then((data) => {
+    {this.props.user && (  workshopService.getUser().then((data) => {
       this.setState({
         wallet: data.wallet,
         attendedWorkshops: data.attendedWorkshops,
       });
-    });
+    })) }
+  
     //CORRECT AXIOS CALL WITHOUT SERVICE!
     // axios
     //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
