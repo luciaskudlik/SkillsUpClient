@@ -37,6 +37,14 @@ class AuthService {
 
     return pr;
   }
+
+  uploadImage(uploadData) {
+    const pr = this.auth
+      .post("/auth/upload", uploadData, { withCredentials: true })
+      .then((response) => response.data);
+
+    return pr;
+  }
 }
 
 const authService = new AuthService();

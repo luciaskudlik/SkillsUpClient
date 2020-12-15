@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withAuth } from "./../../context/auth-context";
+import workshopService from "./../../lib/workshop-service";
 
 class AddWorkshop extends React.Component {
   state = {
@@ -48,40 +49,46 @@ class AddWorkshop extends React.Component {
 
     const userId = this.props.user._id;
 
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/api/workshops`,
-        {
-          title,
-          img,
-          description,
-          date,
-          category,
-          length,
-          credits,
-          maxParticipants,
-          location,
-          userId,
-        },
-        { withCredentials: true }
+    workshopService
+      .addOneWorkshop(
+        title,
+        img,
+        description,
+        date,
+        category,
+        length,
+        credits,
+        maxParticipants,
+        location,
+        userId
       )
-      .then((response) => {
-        //console.log("sent to DB", response.data);
+      .then((data) => {
         this.props.createWorkshop();
-      })
-      .catch((err) => console.log(err));
+      });
 
-    //clear form
-    // this.setState({
-    //   title: "",
-    //   description: "",
-    //   category: "",
-    //   date: "",
-    //   length: "",
-    //   credits: "",
-    //   maxParticipants: "",
-    //   location: "",
-    // });
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .post(
+    //     `${process.env.REACT_APP_API_URL}/api/workshops`,
+    //     {
+    //       title,
+    //       img,
+    //       description,
+    //       date,
+    //       category,
+    //       length,
+    //       credits,
+    //       maxParticipants,
+    //       location,
+    //       userId,
+    //     },
+    //     { withCredentials: true }
+    //   )
+    //   .then((response) => {
+    //     //console.log("sent to DB", response.data);
+    //     this.props.createWorkshop();
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   handleFileUpload = (e) => {
@@ -93,18 +100,23 @@ class AddWorkshop extends React.Component {
     // req.body to .create() method when creating a new project in '/api/projects' POST route
     uploadData.append("img", file);
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        console.log("response is: ", response);
-        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-        this.setState({ img: response.data.secure_url });
-      })
-      .catch((err) => {
-        console.log("Error while uploading the file: ", err);
-      });
+    workshopService.uploadImage(uploadData).then((data) => {
+      this.setState({ img: data.secure_url });
+    });
+
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     console.log("response is: ", response);
+    //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+    //     this.setState({ img: response.data.secure_url });
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error while uploading the file: ", err);
+    //   });
   };
 
   render() {

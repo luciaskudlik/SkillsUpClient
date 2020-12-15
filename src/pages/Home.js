@@ -15,14 +15,13 @@ class Home extends React.Component {
   };
 
   componentDidMount = () => {
-    workshopService.getAllWorkshops()
-      .then((data) => {
-        console.log(data);
-        this.setState({
-          workshopList: data,
-        });
-      })
-    
+    workshopService.getAllWorkshops().then((data) => {
+      console.log(data);
+      this.setState({
+        workshopList: data,
+      });
+    });
+
     //CORRECT AXIOS CALL WITHOUT SERVICE!
     // axios
     //   .get(`${process.env.REACT_APP_API_URL}/api/workshops`)

@@ -15,29 +15,145 @@ class WorkshopService {
   getAllWorkshops = () => {
     const pr = this.api
       .get("/workshops")
-      .then((response) => response.data )
+      .then((response) => response.data)
       .catch((err) => console.log(err));
 
     return pr;
   };
 
-  //   getOne = (id) => {
-  //     const pr = this.api.get(`/example/${id}`);
+  getUser = () => {
+    const pr = this.api
+      .get("/user", { withCredentials: true })
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
 
-  //     return pr;
-  //   };
+    return pr;
+  };
 
-  //   create = (data) => {
-  //     const pr = this.api.post(`/example/${id}`, data);
+  getOneWorkshop = (id) => {
+    const pr = this.api
+      .get(`/workshops/${id}`)
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
 
-  //     return pr;
-  //   };
+    return pr;
+  };
 
-  //   deleteOne = (id) => {
-  //     const pr = this.api.delete(`/example/${id}`);
+  signupForWorkshop = (id, userId) => {
+    const pr = this.api
+      .post(`/workshops/signup/${id}`, { userId })
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
 
-  //     return pr;
-  //   };
+    return pr;
+  };
+
+  getWorkshopsByCategory = (category) => {
+    const pr = this.api
+      .get(`/workshops/category/${category}`)
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+
+    return pr;
+  };
+
+  addOneWorkshop = (
+    title,
+    img,
+    description,
+    date,
+    category,
+    length,
+    credits,
+    maxParticipants,
+    location,
+    userId
+  ) => {
+    const pr = this.api
+      .post(
+        "/workshops",
+        {
+          title,
+          img,
+          description,
+          date,
+          category,
+          length,
+          credits,
+          maxParticipants,
+          location,
+          userId,
+        },
+        { withCredentials: true }
+      )
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+
+    return pr;
+  };
+
+  uploadImage = (uploadData) => {
+    const pr = this.api
+      .post("/upload", uploadData, { withCredentials: true })
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+
+    return pr;
+  };
+
+  editOneWorkshop = (
+    id,
+    title,
+    img,
+    description,
+    date,
+    category,
+    length,
+    credits,
+    maxParticipants,
+    location,
+    userId
+  ) => {
+    const pr = this.api
+      .put(
+        `/workshops/${id}`,
+        {
+          title,
+          img,
+          description,
+          date,
+          category,
+          length,
+          credits,
+          maxParticipants,
+          location,
+          userId,
+        },
+        { withCredentials: true }
+      )
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+
+    return pr;
+  };
+
+  deleteOneWorkshop = (id, userId) => {
+    const pr = this.api
+      .post(`/workshops/${id}`, { userId }, { withCredentials: true })
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+
+    return pr;
+  };
+
+  cancelOneWorkshop = (id, userId) => {
+    const pr = this.api
+      .post(`/workshops/cancel/${id}`, { userId }, { withCredentials: true })
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+
+    return pr;
+  };
 }
 
 // Create instance (object) containing all axios calls as methods

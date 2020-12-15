@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import AddWorkshop from "../components/AddWorkshop/AddWorkshop";
 import WorkshopCard from "../components/WorkshopCard/WorkshopCard";
 import { withAuth } from "../context/auth-context";
+import workshopService from "./../lib/workshop-service";
 
 class Profile extends Component {
   state = {
@@ -13,16 +14,25 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
-      .then((response) => {
-        this.setState({
-          hostedWorkshops: response.data.hostedWorkshops,
-          attendedWorkshops: response.data.attendedWorkshops,
-          wallet: response.data.wallet,
-        });
-      })
-      .catch((err) => console.log(err));
+    workshopService.getUser().then((data) => {
+      console.log(data);
+      this.setState({
+        hostedWorkshops: data.hostedWorkshops,
+        attendedWorkshops: data.attendedWorkshops,
+        wallet: data.wallet,
+      });
+    });
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
+    //   .then((response) => {
+    //     this.setState({
+    //       hostedWorkshops: response.data.hostedWorkshops,
+    //       attendedWorkshops: response.data.attendedWorkshops,
+    //       wallet: response.data.wallet,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
   }
 
   toggleForm = () => {
@@ -30,54 +40,96 @@ class Profile extends Component {
   };
 
   addOneWorkshop = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
-      .then((response) => {
-        this.setState({
-          hostedWorkshops: response.data.hostedWorkshops,
-          wallet: response.data.wallet,
-        });
-      })
-      .catch((err) => console.log(err));
+    workshopService.getUser().then((data) => {
+      console.log(data);
+      this.setState({
+        hostedWorkshops: data.hostedWorkshops,
+        wallet: data.wallet,
+      });
+    });
+
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     this.setState({
+    //       hostedWorkshops: response.data.hostedWorkshops,
+    //       wallet: response.data.wallet,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
 
     this.toggleForm();
   };
 
   deleteOneWorkshop = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
-      .then((response) => {
-        this.setState({
-          hostedWorkshops: response.data.hostedWorkshops,
-          wallet: response.data.wallet,
-        });
-      })
-      .catch((err) => console.log(err));
+    workshopService.getUser().then((data) => {
+      console.log(data);
+      this.setState({
+        hostedWorkshops: data.hostedWorkshops,
+        wallet: data.wallet,
+      });
+    });
+
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     this.setState({
+    //       hostedWorkshops: response.data.hostedWorkshops,
+    //       wallet: response.data.wallet,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   editOneWorkshop = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
-      .then((response) => {
-        this.setState({
-          hostedWorkshops: response.data.hostedWorkshops,
-          wallet: response.data.wallet,
-        });
-      })
-      .catch((err) => console.log(err));
+    workshopService.getUser().then((data) => {
+      console.log(data);
+      this.setState({
+        hostedWorkshops: data.hostedWorkshops,
+        wallet: data.wallet,
+      });
+    });
+
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     this.setState({
+    //       hostedWorkshops: response.data.hostedWorkshops,
+    //       wallet: response.data.wallet,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   cancelOneWorkshop = () => {
-    console.log("cancel funcito was called'")
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
-      .then((response) => {
-        this.setState({
-          attendedWorkshops: response.data.attendedWorkshops,
-          wallet: response.data.wallet,
-        });
-      })
-      .catch((err) => console.log(err));
+    workshopService.getUser().then((data) => {
+      console.log(data);
+      this.setState({
+        attendedWorkshops: data.attendedWorkshops,
+        wallet: data.wallet,
+      });
+    });
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     this.setState({
+    //       attendedWorkshops: response.data.attendedWorkshops,
+    //       wallet: response.data.wallet,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   render() {
@@ -113,7 +165,11 @@ class Profile extends Component {
           .map((workshop) => {
             return (
               <div key={workshop._id}>
-                <WorkshopCard workshop={workshop} showCross={true} cancel={this.cancelOneWorkshop} />
+                <WorkshopCard
+                  workshop={workshop}
+                  showCross={true}
+                  cancel={this.cancelOneWorkshop}
+                />
               </div>
             );
           })

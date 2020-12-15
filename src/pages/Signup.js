@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../context/auth-context";
 import axios from "axios";
+import authService from "../lib/auth-service";
 
 class Signup extends Component {
   state = {
@@ -33,28 +34,31 @@ class Signup extends Component {
     // req.body to .create() method when creating a new project in '/api/projects' POST route
     uploadData.append("img", file);
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/auth/upload`, uploadData, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        console.log("response is: ", response);
-        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-        this.setState({ img: response.data.secure_url });
-      })
-      .catch((err) => {
-        console.log("Error while uploading the file: ", err);
-      });
+    authService.uploadImage(uploadData).then((data) => {
+      this.setState({ img: data.secure_url });
+    });
+
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .post(`${process.env.REACT_APP_API_URL}/auth/upload`, uploadData, {
+    //     withCredentials: true,
+    //   })
+    //   .then((response) => {
+    //     console.log("response is: ", response);
+    //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+    //     this.setState({ img: response.data.secure_url });
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error while uploading the file: ", err);
+    //   });
   };
 
   render() {
     const { username, email, password } = this.state;
     return (
       <div id="signup-page">
-        
-
         <form onSubmit={this.handleFormSubmit}>
-        <h1>Sign Up</h1>
+          <h1>Sign Up</h1>
           <div>
             <span>
               <img
