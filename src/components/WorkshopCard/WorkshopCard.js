@@ -109,7 +109,7 @@ class WorkshopCard extends React.Component {
 
             <div id="card-bottom">
               {this.state.host ? (
-                <div id="card-host-container">
+                <div class="card-host-container">
                   <img
                     id="workshop-card-host-img"
                     src={this.state.host.img}
@@ -117,7 +117,14 @@ class WorkshopCard extends React.Component {
                   />
                   <p>{this.state.host.username}</p>
                 </div>
-              ) : null}
+              ) : (
+                <div class="card-host-container">
+                  <p>
+                    <i className="fas fa-user"></i> hosted by
+                    <span> SkillsUp</span>
+                  </p>
+                </div>
+              )}
 
               <div className="icons">
                 <div onClick={this.handleDelete}>

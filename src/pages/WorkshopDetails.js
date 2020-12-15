@@ -217,11 +217,17 @@ class WorkshopDetails extends React.Component {
         {this.state.showErrorMessage ? <p>{this.state.errorMessage}</p> : null}
         <p>{this.state.successMessage}</p>
 
-        <h4 id="attendees">These people are already signed up:</h4>
+        {this.state.participants.length > 0 ? (
+          <div>
+            <h4 id="attendees">These people are already signed up:</h4>
 
-        {this.state.participants.map((person) => {
-          return <img className="participant-img" src={person.img} alt="" />;
-        })}
+            {this.state.participants.map((person) => {
+              return (
+                <img className="participant-img" src={person.img} alt="" />
+              );
+            })}
+          </div>
+        ) : null}
       </div>
     );
   }

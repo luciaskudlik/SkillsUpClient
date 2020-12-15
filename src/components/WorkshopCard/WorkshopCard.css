@@ -46,7 +46,7 @@
 
 .workshop-card {
   color: #495464;
-  height: 320px;
+  min-height: 320px;
   width: 300px;
   border-radius: 5px;
   margin: 20px auto;
@@ -87,8 +87,12 @@
   margin-top: 45px;
 }
 
-#card-host-container {
+.card-host-container {
   display: flex;
+}
+
+.card-host-container span {
+  font-weight: 600;
 }
 
 .icons {
