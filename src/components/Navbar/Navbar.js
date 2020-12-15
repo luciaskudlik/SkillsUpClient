@@ -21,7 +21,10 @@ class Navbar extends Component {
             <Link to={"/"} className="navbar-brand">
               SkillsUp
             </Link>
-            {this.props.user ? <img src={this.props.user.img} /> : null}
+
+            <Link to="/private/profile">
+              {this.props.user ? <img src={this.props.user.img} /> : null}
+            </Link>
 
             <button id="sun-btn" onClick={this.handleDayMode}>
               <i class="fas fa-sun"></i>

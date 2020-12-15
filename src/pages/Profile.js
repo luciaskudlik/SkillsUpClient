@@ -4,6 +4,7 @@ import AddWorkshop from "../components/AddWorkshop/AddWorkshop";
 import WorkshopCard from "../components/WorkshopCard/WorkshopCard";
 import { withAuth } from "../context/auth-context";
 import workshopService from "./../lib/workshop-service";
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
   state = {
@@ -135,45 +136,70 @@ class Profile extends Component {
   render() {
     return (
       <div id="profile-page">
-        <p><i class="fas fa-coins"></i> {this.state.wallet} credits</p>
-        <h2 id="welcome-message">Welcome {this.props.user && this.props.user.username}</h2>
-        <img id="profile-image" src={this.props.user.img} />
-        <button onClick={this.toggleForm}>Host your own workshop</button>
+        <div id="user-container">
+          <img id="profile-image" src={this.props.user.img} />
+          <div>
+            <h2 id="welcome-message">
+              Welcome {this.props.user && this.props.user.username}
+            </h2>
+            <p>
+              <i class="fas fa-coins"></i> {this.state.wallet} credits
+            </p>
+          </div>
+        </div>
+        <button id="host-workshop-btn" onClick={this.toggleForm}>
+          Host your own workshop
+        </button>
         {this.state.showForm ? (
           <AddWorkshop createWorkshop={this.addOneWorkshop} />
         ) : null}
-          
-        <h2>Your hosted workshops</h2>
-        {this.state.hostedWorkshops
-          .map((workshop) => {
-            return (
-              <div key={workshop._id}>
-                <WorkshopCard
-                  workshop={workshop}
-                  showBin={true}
-                  showPen={true}
-                  delete={this.deleteOneWorkshop}
-                  edit={this.editOneWorkshop}
-                />
-              </div>
-            );
-          })
-          .reverse()}
 
-        <h2>Your upcoming workshops</h2>
-        {this.state.attendedWorkshops
-          .map((workshop) => {
-            return (
-              <div key={workshop._id}>
-                <WorkshopCard
-                  workshop={workshop}
-                  showCross={true}
-                  cancel={this.cancelOneWorkshop}
-                />
-              </div>
-            );
-          })
-          .reverse()}
+        <section>
+          <h2>Your hosted workshops</h2>
+          {this.state.hostedWorkshops.length > 0 ? (
+            this.state.hostedWorkshops
+              .map((workshop) => {
+                return (
+                  <div key={workshop._id}>
+                    <WorkshopCard
+                      workshop={workshop}
+                      showBin={true}
+                      showPen={true}
+                      delete={this.deleteOneWorkshop}
+                      edit={this.editOneWorkshop}
+                    />
+                  </div>
+                );
+              })
+              .reverse()
+          ) : (
+            <p>You are not hosting any workshops at the moment.</p>
+          )}
+        </section>
+
+        <section>
+          <h2>Workshops you've signed up for</h2>
+          {this.state.attendedWorkshops.length > 0 ? (
+            this.state.attendedWorkshops
+              .map((workshop) => {
+                return (
+                  <div key={workshop._id}>
+                    <WorkshopCard
+                      workshop={workshop}
+                      showCross={true}
+                      cancel={this.cancelOneWorkshop}
+                    />
+                  </div>
+                );
+              })
+              .reverse()
+          ) : (
+            <p>
+              You have not signed up to any workshops yet. Click{" "}
+              <Link to="/">here</Link> to browse.
+            </p>
+          )}
+        </section>
       </div>
     );
   }

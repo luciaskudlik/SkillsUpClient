@@ -58,6 +58,7 @@
   border-color: #495464;
   color: #495464;
   background-color: #e8e8e8;
+  /* background-color: #357585; */
 }
 
 h2.category-info {
@@ -115,20 +116,54 @@ p.category-info {
 /********************************************ProfilePage********************************************/
 
 #profile-image {
-  width: 130px;
-  height: 130px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 100%;
 }
 
+#profile-page section {
+  min-height: 200px;
+  text-align: center;
+}
 
+#user-container {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  background-color: #e8e8e8;
+}
+
+#user-container div {
+  margin-left: 10px;
+}
+
+#user-container div p {
+  color: grey;
+}
+
+#welcome-message {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #495464;
+}
+
+#host-workshop-btn {
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+  height: 40px;
+  width: 250px;
+  background-color: #357585;
+  color: white;
+  margin: 20px auto;
+}
 
 /********************************************DetailsPage********************************************/
 
 #details-container {
   margin: 20px;
 }
-
 
 /* #details-date {
   font-size: 0.9rem;
@@ -142,7 +177,6 @@ p.category-info {
   border-radius: 5px;
 }
 
-
 #workshop-title {
   margin-left: 15px;
   color: #495464;
@@ -154,8 +188,6 @@ p.category-info {
   width: 95%;
   margin: 0 auto;
 }
-
-
 
 .participant-img {
   width: 35px;
@@ -182,7 +214,6 @@ p.category-info {
 
 #info-card i {
   padding: 7px;
-
 }
 
 #info-card h4 {
