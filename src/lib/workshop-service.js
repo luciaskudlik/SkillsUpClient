@@ -7,7 +7,7 @@ class WorkshopService {
     // this.api  is a reusable base of the request containing the base url (baseURL)
     // of the API and the options ( `withCredentials: true` )
     this.api = axios.create({
-      baseURL: "http://localhost:5000/api",
+      baseURL: process.env.REACT_APP_API_URL + "/api",
       withCredentials: true,
     });
   }
@@ -15,12 +15,9 @@ class WorkshopService {
   getAllWorkshops = () => {
     const pr = this.api
       .get("/workshops")
-      .then((response) => {
-        this.setState({
-          workshopList: response.data,
-        });
-      })
+      .then((response) => response.data )
       .catch((err) => console.log(err));
+
     return pr;
   };
 

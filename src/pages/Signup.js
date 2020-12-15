@@ -75,6 +75,7 @@ class Signup extends Component {
             <input
               type="text"
               name="username"
+              className="signup-login-input"
               value={username}
               onChange={this.handleChange}
               placeholder="username"
@@ -85,6 +86,7 @@ class Signup extends Component {
             <input
               type="email"
               name="email"
+              className="signup-login-input"
               value={email}
               onChange={this.handleChange}
               placeholder="email"
@@ -95,6 +97,7 @@ class Signup extends Component {
             <input
               type="password"
               name="password"
+              className="signup-login-input"
               value={password}
               onChange={this.handleChange}
               placeholder="password"

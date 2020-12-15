@@ -5,7 +5,7 @@ import SearchBar from "./../components/SearchBar/SearchBar";
 import axios from "axios";
 import WorkshopCard from "../components/WorkshopCard/WorkshopCard";
 import { Link } from "react-router-dom";
-import WorkshopService from "./../lib/workshop-service";
+import workshopService from "./../lib/workshop-service";
 
 class Home extends React.Component {
   state = {
@@ -15,18 +15,24 @@ class Home extends React.Component {
   };
 
   componentDidMount = () => {
-    //const response = WorkshopService.getAllWorkshops();
-    
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/workshops`)
-      .then((response) => {
+    workshopService.getAllWorkshops()
+      .then((data) => {
+        console.log(data);
         this.setState({
-          workshopList: response.data,
+          workshopList: data,
         });
       })
-      .catch((err) => console.log(err));
-    console.log("workshop LIIISTTTTTT", this.state.workshopList);
+    
+    //CORRECT AXIOS CALL WITHOUT SERVICE!
+    // axios
+    //   .get(`${process.env.REACT_APP_API_URL}/api/workshops`)
+    //   .then((response) => {
+    //     this.setState({
+    //       workshopList: response.data,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
+    // console.log("workshop LIIISTTTTTT", this.state.workshopList);
   };
 
   filterWorkshops = (input) => {

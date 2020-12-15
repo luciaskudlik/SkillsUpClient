@@ -7,10 +7,10 @@ class Footer extends Component {
     return (
       <div id="footer-div">
         <p>Follow Us</p>
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="far fa-envelope"></i>
-        <i class="fab fa-twitter"></i>
+        <i className="fab fa-instagram"></i>
+        <i className="fab fa-facebook-f"></i>
+        <i className="far fa-envelope"></i>
+        <i className="fab fa-twitter"></i>
         <p id="disclaimer">disclaimer</p>
       </div>
       

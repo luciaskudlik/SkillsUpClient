@@ -232,12 +232,12 @@ p.category-info {
 }
 
 #signup-page > form {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   height: 450px;
   width: 80%;
   margin: 0 auto;
-  background-color: white;
-  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.7);
+  /* opacity: 0.8; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -267,6 +267,11 @@ p.category-info {
   width: 200px;
   margin: 10px;
   height: 35px;
+}
+
+.signup-login-input {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: #e8e8e8;
 }
 
 #signup-button {
