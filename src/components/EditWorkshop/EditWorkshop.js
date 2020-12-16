@@ -124,7 +124,7 @@ class EditWorkshop extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} id="edit-form">
+      <form onSubmit={this.handleSubmit} className="edit-form">
         <label for="title">Name your workshop</label>
         <input
           name="title"
@@ -146,6 +146,7 @@ class EditWorkshop extends React.Component {
 
         <label for="description">Tell us a bit about your workshop</label>
         <textarea
+          id="description-box"
           name="description"
           type="text"
           value={this.state.description}
@@ -153,7 +154,7 @@ class EditWorkshop extends React.Component {
           required
         />
         <h4>Pick a category</h4>
-        <div id="category-checkboxes">
+        <div className="category-checkboxes">
           <div className="checkbox-pair">
             <label for="sports">Sports</label>
             <input
@@ -240,7 +241,7 @@ class EditWorkshop extends React.Component {
           value={this.state.date}
           onChange={this.handleInput}
         />
-{/* 
+        {/* 
         <input
           name="date"
           type="date"
@@ -270,16 +271,15 @@ class EditWorkshop extends React.Component {
         <input
           type="number"
           name="maxParticipants"
-          placeholder="max number of participants"
           value={this.state.maxParticipants}
           onChange={this.handleInput}
           required
         />
         <label for="location">Where will it take place?</label>
-        <textarea
+        <input
           type="text"
           name="location"
-          placeholder="location"
+          placeholder="e.g. Barceloneta Beach"
           value={this.state.location}
           onChange={this.handleInput}
           required

@@ -1,49 +1,69 @@
-#edit-form {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
-    border: none;
-    border-radius: 3px;
-    background-color: #bbbfca;
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #bbbfca;
 }
 
-#edit-form input {
-    background-color: #f4f4f2;
-    border: none;
-    border-radius: 3px;
-    width: 200px;
-    margin: 20px auto;
-
+.edit-form label {
+  color: #495464;
+  letter-spacing: 1px;
 }
 
-#edit-form textarea {
-    background-color: red;
-    border: none;
-    border-radius: 3px;
-    width: 200px;
-    margin: 20px auto; 
+.edit-form input {
+  background-color: #f4f4f2;
+  border: none;
+  border-radius: 3px;
+  width: 200px;
+  margin: 20px auto;
 }
 
-#edit-form textarea {
+.edit-form textarea {
+  background-color: #f4f4f2;
+  border: none;
+  border-radius: 3px;
+  width: 250px;
+  margin: 20px auto;
+}
+
+/* #edit-form textarea {
     background-color: #f4f4f2;
     border: none;
     border-radius: 3px;
     width: 300px;
     margin: 20px auto;
 
-}
+} */
 
-#category-checkboxes {
-    display: flex;
-    flex-wrap: wrap;
+.category-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 120px;
+  margin: 10px;
 }
 
 .checkbox-pair {
-    display: flex;
-    border: 1px solid black;
-    width: 100%;
-    flex-direction: row;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-size: 12px;
+  width: 50%;
+  margin: 0px;
 }
 
+.checkbox-pair > label {
+  /* display: flex; */
+  text-align: right;
+  width: 200px;
+  /* align-self: center; */
+}
+
+.checkbox-pair > input {
+  margin: 0px;
+  background-color:aquamarine;
+  padding: px;
+}

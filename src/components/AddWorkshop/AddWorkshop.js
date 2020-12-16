@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { withAuth } from "./../../context/auth-context";
 import workshopService from "./../../lib/workshop-service";
+import "./AddWorkshop.css";
 
 class AddWorkshop extends React.Component {
   state = {
@@ -121,12 +122,13 @@ class AddWorkshop extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} class="edit-form">
+        <label for="title">Name your workshop</label>
         <input
           name="title"
           type="text"
-          placeholder="Workshop"
           value={this.state.title}
+          placeholder="e.g. Cooking Class"
           onChange={this.handleInput}
           required
         />
@@ -136,14 +138,20 @@ class AddWorkshop extends React.Component {
           type="file"
           onChange={this.handleFileUpload}
           required
-        ></input>
-        <span>
-          <img
-            style={{ width: "100px" }}
-            src={this.state.img && this.state.img}
-            alt=""
-          ></img>
-        </span>
+        />
+
+        <img
+          style={{
+            width: "150px",
+            height: "200px",
+            margin: "0 auto",
+            border: "1px solid white",
+          }}
+          src={this.state.img && this.state.img}
+          alt=""
+        ></img>
+
+        <label for="description">Tell us a bit about your workshop</label>
         <textarea
           name="description"
           type="text"
@@ -152,85 +160,104 @@ class AddWorkshop extends React.Component {
           onChange={this.handleInput}
           required
         />
-        <div>
-          <label for="sports">Sports</label>
-          <input
-            type="radio"
-            name="category"
-            id="sports"
-            value="Sports"
-            onChange={this.handleInput}
-            required
-          />
 
-          <label for="beauty">Beauty</label>
-          <input
-            type="radio"
-            name="category"
-            id="beauty"
-            value="Beauty"
-            onChange={this.handleInput}
-          />
+        <h4>Pick a category</h4>
+        <div className="category-checkboxes">
+          <div className="checkbox-pair">
+            <label for="sports">Sports</label>
+            <input
+              type="radio"
+              name="category"
+              id="sports"
+              value="Sports"
+              onChange={this.handleInput}
+              required
+            />
+          </div>
 
-          <label for="languages">Languages</label>
-          <input
-            type="radio"
-            name="category"
-            id="languages"
-            value="Languages"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="beauty">Beauty</label>
+            <input
+              type="radio"
+              name="category"
+              id="beauty"
+              value="Beauty"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="creativity">Creativity</label>
-          <input
-            type="radio"
-            name="category"
-            id="creativity"
-            value="Creativity"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="languages">Languages</label>
+            <input
+              type="radio"
+              name="category"
+              id="languages"
+              value="Languages"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="food-drink">Food & Drink</label>
-          <input
-            type="radio"
-            name="category"
-            id="food-drink"
-            value="Food & Drink"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="creativity">Creativity</label>
+            <input
+              type="radio"
+              name="category"
+              id="creativity"
+              value="Creativity"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="performing-arts">Performing Arts</label>
-          <input
-            type="radio"
-            name="category"
-            id="performing-arts"
-            value="Performing Arts"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="food-drink">Food & Drink</label>
+            <input
+              type="radio"
+              name="category"
+              id="food-drink"
+              value="Food & Drink"
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <label for="other">Other</label>
-          <input
-            type="radio"
-            name="category"
-            id="other"
-            value="Other"
-            onChange={this.handleInput}
-          />
+          <div className="checkbox-pair">
+            <label for="performing-arts">Performing Arts</label>
+            <input
+              type="radio"
+              name="category"
+              id="performing-arts"
+              value="Performing Arts"
+              onChange={this.handleInput}
+            />
+          </div>
+
+          <div className="checkbox-pair">
+            <label for="other">Other</label>
+            <input
+              type="radio"
+              name="category"
+              id="other"
+              value="Other"
+              onChange={this.handleInput}
+            />
+          </div>
         </div>
 
+        <label for="date">What's the date and time?</label>
         <input
           name="date"
-          type="date"
+          type="datetime-local"
           value={this.state.date}
           onChange={this.handleInput}
           required
         />
+
+        <label for="length">How long will it last (in mins)? </label>
         <input
           name="length"
           type="number"
-          placeholder="duration"
           value={this.state.length}
           onChange={this.handleInput}
+          placeholder="e.g 90"
           required
         />
         <p>Price: {this.state.credits}</p>
@@ -241,20 +268,23 @@ class AddWorkshop extends React.Component {
           value={this.state.credits}
           onChange={this.handleInput}
         /> */}
+
+        <label for="maxParticipants">Maximum number of participants:</label>
         <input
           type="number"
           name="maxParticipants"
-          placeholder="max number of participants"
           value={this.state.maxParticipants}
           onChange={this.handleInput}
           required
         />
+
+        <label for="location">Where will it take place?</label>
         <textarea
           type="text"
           name="location"
-          placeholder="location"
           value={this.state.location}
           onChange={this.handleInput}
+          placeholder="e.g. Barceloneta Beach"
           required
         />
 
