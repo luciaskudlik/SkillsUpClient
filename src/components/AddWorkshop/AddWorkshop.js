@@ -139,18 +139,18 @@ class AddWorkshop extends React.Component {
           onChange={this.handleFileUpload}
           required
         />
-
-        <img
-          style={{ width: "100px" }}
-          src={this.state.img && this.state.img}
-          alt=""
-        ></img>
+        <span>
+          <img
+            style={{ width: "100px", marginBottom: "20px" }}
+            src={this.state.img && this.state.img}
+            alt=""
+          ></img>
+        </span>
 
         <label for="description">Tell us a bit about your workshop</label>
         <textarea
           name="description"
           type="text"
-          placeholder="description"
           value={this.state.description}
           onChange={this.handleInput}
           required
@@ -163,7 +163,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="sports"
+              // id="sports"
               value="Sports"
               onChange={this.handleInput}
               required
@@ -175,7 +175,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="beauty"
+              // id="beauty"
               value="Beauty"
               onChange={this.handleInput}
             />
@@ -186,7 +186,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="languages"
+              // id="languages"
               value="Languages"
               onChange={this.handleInput}
             />
@@ -197,7 +197,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="creativity"
+              // id="creativity"
               value="Creativity"
               onChange={this.handleInput}
             />
@@ -208,7 +208,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="food-drink"
+              // id="food-drink"
               value="Food & Drink"
               onChange={this.handleInput}
             />
@@ -219,7 +219,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="performing-arts"
+              // id="performing-arts"
               value="Performing Arts"
               onChange={this.handleInput}
             />
@@ -230,7 +230,7 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              id="other"
+              // id="other"
               value="Other"
               onChange={this.handleInput}
             />
@@ -255,7 +255,7 @@ class AddWorkshop extends React.Component {
           placeholder="e.g 90"
           required
         />
-        <p>Price: {this.state.credits}</p>
+        <p className="price-tag">Price: {this.state.credits}</p>
         {/* <input
           name="credits"
           type="number"
@@ -283,7 +283,10 @@ class AddWorkshop extends React.Component {
           required
         />
 
-        <button type="submit" className="edit-host-workshop-btn"> Host your workshop </button>
+        <button type="submit" className="edit-host-workshop-btn">
+          {" "}
+          Host your workshop{" "}
+        </button>
       </form>
     );
   }

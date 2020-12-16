@@ -7,15 +7,16 @@
 }
 
 #disclaimer {
-  font-size: 5.1rem;
+  font-size: 0.5rem;
+  padding-top: 10px;
 }
 
-#footer-div p {
-  font-size: 0.7rem;
-  padding-top: 10px;
+#follow-us {
+  font-size: 0.8rem;
+  padding-top: 30px;
 }
 
 #footer-div i {
   font-size: 0.8rem;
-  padding: 8px
+  padding: 8px;
 }

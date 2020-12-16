@@ -44,20 +44,31 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  align-items: flex-end;
-  height: 250px;
-  margin: 10px;
+  align-items: center;
+  height: 400px;
 }
 
 .checkbox-pair {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
-  font-size: 12px;
-  width: 100px;
-  margin: 0px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
   text-align: right;
+  width: 200px;
+  margin: 0px;
 }
+
+.checkbox-pair label {
+  text-align: right;
+  width: 200px;
+}
+
+.price-tag {
+  color: #495464;
+}
+
+
 
 /* .checkbox-pair > label {
   display: flex;
@@ -80,4 +91,7 @@
   border: none;
   height: 40px;
   border-radius: 3px;
+  background-color: #357585;
+  color: white;
+
 }

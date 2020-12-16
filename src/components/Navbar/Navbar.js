@@ -72,7 +72,6 @@ class Navbar extends Component {
                   <Link className="nav-link" to={"/login"}>
                     Login
                   </Link>
-                  <br />
                   <Link className="nav-link" to={"/signup"}>
                     Signup
                   </Link>

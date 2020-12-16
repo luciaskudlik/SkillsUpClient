@@ -130,11 +130,13 @@ p.category-info {
 #profile-page section h2 {
   font-size: 25px;
   letter-spacing: 1px;
+  color: #495464;
 }
 
 .empty-message {
   margin: 80px 30px;
   margin-bottom: 100px;
+  color: grey;
 }
 
 
