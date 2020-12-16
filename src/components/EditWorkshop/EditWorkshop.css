@@ -42,9 +42,10 @@
 
 .category-checkboxes {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  align-items: space-between;
-  height: 500px;
+  align-items: flex-end;
+  height: 250px;
   margin: 10px;
 }
 
@@ -53,7 +54,7 @@
   flex-direction: row;
   align-items: baseline;
   font-size: 12px;
-  width: 50%;
+  width: 100px;
   margin: 0px;
   text-align: right;
 }
@@ -79,5 +80,4 @@
   border: none;
   height: 40px;
   border-radius: 3px;
-  background-color: limegreen;
 }
