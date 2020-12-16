@@ -125,10 +125,11 @@ class EditWorkshop extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} id="edit-form">
+        <label for="title">Name your workshop</label>
         <input
           name="title"
           type="text"
-          placeholder="Workshop"
+          placeholder="e.g. Cooking Class"
           value={this.state.title}
           onChange={this.handleInput}
           required
@@ -142,14 +143,16 @@ class EditWorkshop extends React.Component {
             alt=""
           ></img>
         </span>
+
+        <label for="description">Tell us a bit about your workshop</label>
         <textarea
           name="description"
           type="text"
-          placeholder="description"
           value={this.state.description}
           onChange={this.handleInput}
           required
         />
+        <h4>Pick a category</h4>
         <div id="category-checkboxes">
           <div className="checkbox-pair">
             <label for="sports">Sports</label>
@@ -230,16 +233,26 @@ class EditWorkshop extends React.Component {
           </div>
         </div>
 
+        <label for="date">What's the date and time?</label>
+        <input
+          name="date"
+          type="datetime-local"
+          value={this.state.date}
+          onChange={this.handleInput}
+        />
+{/* 
         <input
           name="date"
           type="date"
           value={this.state.date}
           onChange={this.handleInput}
-        />
+        /> */}
+
+        <label for="length">How long will it last (in mins)? </label>
         <input
           name="length"
           type="number"
-          placeholder="duration"
+          placeholder="e.g 90"
           value={this.state.length}
           onChange={this.handleInput}
           required
@@ -252,6 +265,8 @@ class EditWorkshop extends React.Component {
           value={this.state.credits}
           onChange={this.handleInput}
         /> */}
+
+        <label for="maxParticipants">Maximum number of participants:</label>
         <input
           type="number"
           name="maxParticipants"
@@ -260,6 +275,7 @@ class EditWorkshop extends React.Component {
           onChange={this.handleInput}
           required
         />
+        <label for="location">Where will it take place?</label>
         <textarea
           type="text"
           name="location"
