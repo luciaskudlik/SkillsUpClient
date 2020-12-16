@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 0 auto;
+  margin: 20px auto;
   border: none;
   border-radius: 5px;
   background-color: #bbbfca;
+  padding: 20px;
 }
 
 .edit-form label {
   color: #495464;
   letter-spacing: 1px;
+  margin-bottom: 0px;
 }
 
 .edit-form input {
@@ -40,9 +42,9 @@
 
 .category-checkboxes {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  height: 120px;
+  align-items: space-between;
+  height: 500px;
   margin: 10px;
 }
 
@@ -53,17 +55,29 @@
   font-size: 12px;
   width: 50%;
   margin: 0px;
-}
-
-.checkbox-pair > label {
-  /* display: flex; */
   text-align: right;
-  width: 200px;
-  /* align-self: center; */
 }
 
-.checkbox-pair > input {
+/* .checkbox-pair > label {
+  display: flex;
+  text-align: left;
+  width: 200px;
+  margin: 0px;
+  align-self: center;
+} */
+
+/* .checkbox-pair > input {
   margin: 0px;
   background-color:aquamarine;
-  padding: px;
+  
+} */
+
+.edit-host-workshop-btn {
+  letter-spacing: 1px;
+  width: 200px;
+  margin: 20px auto;
+  border: none;
+  height: 40px;
+  border-radius: 3px;
+  background-color: limegreen;
 }

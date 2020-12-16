@@ -123,9 +123,21 @@ p.category-info {
 }
 
 #profile-page section {
-  min-height: 200px;
+  min-height: 250px;
   text-align: center;
 }
+
+#profile-page section h2 {
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.empty-message {
+  margin: 80px 30px;
+  margin-bottom: 100px;
+}
+
+
 
 #user-container {
   display: flex;
@@ -149,14 +161,19 @@ p.category-info {
 }
 
 #host-workshop-btn {
+  margin: 0 auto;
+  width: 250px;
+}
+
+#host-workshop-btn button {
   letter-spacing: 1px;
   border: none;
   border-radius: 3px;
   height: 40px;
   width: 250px;
+  margin: 20px auto;
   background-color: #357585;
   color: white;
-  margin: 20px auto;
 }
 
 /********************************************DetailsPage********************************************/
@@ -165,10 +182,14 @@ p.category-info {
   margin: 20px;
 }
 
-/* #details-date {
-  font-size: 0.9rem;
-  color: grey;
-} */
+.back-btn {
+  color: #357585;
+  margin-bottom: 30px;
+}
+
+#details-date {
+  margin-top: 20px;
+}
 
 #details-img {
   width: 100%;
@@ -239,6 +260,11 @@ p.category-info {
 }
 
 #signup-workshop-btn {
+  width: 230px;
+  margin: 0 auto;
+}
+
+#signup-workshop-btn button {
   border: none;
   border-radius: 5px;
   background-color: #495464;
@@ -247,6 +273,7 @@ p.category-info {
   height: 35px;
   width: 230px;
   margin: 0 auto;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -301,15 +328,21 @@ p.category-info {
 }
 
 .signup-login-input {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-color: #e8e8e8;
+  /* background-color: rgba(255, 255, 255, 0.5);
+  border-color: #e8e8e8; */
+  width: 200px;
+  height: 35px;
+  opacity: 0.8;
+  text-align: center;
 }
 
-#signup-button {
+.signup-login-button {
   background-color: #495464;
   border: none;
   color: white;
   letter-spacing: 2px;
+  width: 200px;
+  height: 35px;
 }
 
 /********************************************Login********************************************/
@@ -329,8 +362,8 @@ p.category-info {
   height: 350px;
   width: 75%;
   margin: 0 auto;
-  background-color: white;
-  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.7);
+  /* opacity: 0.8; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -340,21 +373,15 @@ p.category-info {
   padding-bottom: 20px;
 }
 
-#login-page input {
+/* #login-page input {
   width: 200px;
   height: 35px;
-}
+  opacity: 0.9;
+} */
 
 #login-page h1 {
   margin-top: 20px;
   color: #495464;
   font-size: 30px;
   letter-spacing: 2px;
-}
-
-#login-btn {
-  background-color: #495464;
-  color: white;
-  letter-spacing: 2px;
-  border: none;
 }

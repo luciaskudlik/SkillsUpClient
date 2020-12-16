@@ -141,12 +141,7 @@ class AddWorkshop extends React.Component {
         />
 
         <img
-          style={{
-            width: "150px",
-            height: "200px",
-            margin: "0 auto",
-            border: "1px solid white",
-          }}
+          style={{ width: "100px" }}
           src={this.state.img && this.state.img}
           alt=""
         ></img>
@@ -161,7 +156,7 @@ class AddWorkshop extends React.Component {
           required
         />
 
-        <h4>Pick a category</h4>
+        <label>Pick a category</label>
         <div className="category-checkboxes">
           <div className="checkbox-pair">
             <label for="sports">Sports</label>
@@ -288,7 +283,7 @@ class AddWorkshop extends React.Component {
           required
         />
 
-        <button type="submit"> Host your workshop </button>
+        <button type="submit" className="edit-host-workshop-btn"> Host your workshop </button>
       </form>
     );
   }

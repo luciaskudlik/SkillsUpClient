@@ -153,10 +153,9 @@ class EditWorkshop extends React.Component {
           onChange={this.handleInput}
           required
         />
-        <h4>Pick a category</h4>
+        <label>Pick a category</label>
         <div className="category-checkboxes">
           <div className="checkbox-pair">
-            <label for="sports">Sports</label>
             <input
               type="radio"
               name="category"
@@ -165,10 +164,10 @@ class EditWorkshop extends React.Component {
               onChange={this.handleInput}
               required
             />
+            <label for="sports">Sports</label>
           </div>
 
           <div className="checkbox-pair">
-            <label for="beauty">Beauty</label>
             <input
               type="radio"
               name="category"
@@ -176,10 +175,10 @@ class EditWorkshop extends React.Component {
               value="Beauty"
               onChange={this.handleInput}
             />
+            <label for="beauty">Beauty</label>
           </div>
 
           <div className="checkbox-pair">
-            <label for="languages">Languages</label>
             <input
               type="radio"
               name="category"
@@ -187,10 +186,10 @@ class EditWorkshop extends React.Component {
               value="Languages"
               onChange={this.handleInput}
             />
+            <label for="languages">Languages</label>
           </div>
 
           <div className="checkbox-pair">
-            <label for="creativity">Creativity</label>
             <input
               type="radio"
               name="category"
@@ -198,10 +197,10 @@ class EditWorkshop extends React.Component {
               value="Creativity"
               onChange={this.handleInput}
             />
+            <label for="creativity">Creativity</label>
           </div>
 
           <div className="checkbox-pair">
-            <label for="food-drink">Food & Drink</label>
             <input
               type="radio"
               name="category"
@@ -209,10 +208,10 @@ class EditWorkshop extends React.Component {
               value="Food & Drink"
               onChange={this.handleInput}
             />
+            <label for="food-drink">Food & Drink</label>
           </div>
 
           <div className="checkbox-pair">
-            <label for="performing-arts">Performing Arts</label>
             <input
               type="radio"
               name="category"
@@ -220,10 +219,10 @@ class EditWorkshop extends React.Component {
               value="Performing Arts"
               onChange={this.handleInput}
             />
+            <label for="performing-arts">Performing Arts</label>
           </div>
 
           <div className="checkbox-pair">
-            <label for="other">Other</label>
             <input
               type="radio"
               name="category"
@@ -231,6 +230,7 @@ class EditWorkshop extends React.Component {
               value="Other"
               onChange={this.handleInput}
             />
+            <label for="other">Other</label>
           </div>
         </div>
 
@@ -285,7 +285,10 @@ class EditWorkshop extends React.Component {
           required
         />
 
-        <button type="submit"> Edit your workshop </button>
+        <button type="submit" className="edit-host-workshop-btn">
+          {" "}
+          Edit your workshop{" "}
+        </button>
       </form>
     );
   }

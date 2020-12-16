@@ -25,14 +25,15 @@ class Navbar extends Component {
             <Link to="/private/profile">
               {this.props.user ? <img src={this.props.user.img} /> : null}
             </Link>
-
+          </div>
+          <span>
             <button id="sun-btn" onClick={this.handleDayMode}>
               <i class="fas fa-sun"></i>
             </button>
             <button id="moon-btn" onClick={this.handleNightMode}>
               <i class="fas fa-moon"></i>
             </button>
-          </div>
+          </span>
           <button
             className="navbar-toggler"
             type="button"

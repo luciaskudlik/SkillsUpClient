@@ -3,6 +3,7 @@ import axios from "axios";
 import { withAuth } from "./../context/auth-context";
 import moment from "moment";
 import workshopService from "./../lib/workshop-service";
+import { Link } from "react-router-dom";
 
 class WorkshopDetails extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class WorkshopDetails extends React.Component {
     location: " ",
     successMessage: " ",
     showErrorMessage: false,
+    showSuccessMessage: false,
     errorMessage: "",
   };
 
@@ -93,13 +95,16 @@ class WorkshopDetails extends React.Component {
   componentDidMount = () => {
     this.getSingleWorkshop();
 
-    {this.props.user && (  workshopService.getUser().then((data) => {
-      this.setState({
-        wallet: data.wallet,
-        attendedWorkshops: data.attendedWorkshops,
-      });
-    })) }
-  
+    {
+      this.props.user &&
+        workshopService.getUser().then((data) => {
+          this.setState({
+            wallet: data.wallet,
+            attendedWorkshops: data.attendedWorkshops,
+          });
+        });
+    }
+
     //CORRECT AXIOS CALL WITHOUT SERVICE!
     // axios
     //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
@@ -146,6 +151,7 @@ class WorkshopDetails extends React.Component {
 
         workshopService.signupForWorkshop(id, userId).then((data) => {
           this.setState({
+            showSuccessMessage: true,
             successMessage: "You successfully signed up for this workshop.",
           });
         });
@@ -173,6 +179,12 @@ class WorkshopDetails extends React.Component {
 
     return (
       <div id="details-container">
+        <Link
+          to={`/workshops/category/${this.state.category}`}
+          class="back-btn"
+        >
+          <i class="fas fa-arrow-left"></i> Back to results
+        </Link>
         <p id="details-date">{date}</p>
         <h2 id="workshop-title">{this.state.title}</h2>
         <div id="details-img-container">
@@ -206,17 +218,19 @@ class WorkshopDetails extends React.Component {
         {this.state.participants.length === this.state.maxParticipants ? (
           <p>this course is full!!!!!</p>
         ) : (
-          <button
-            id="signup-workshop-btn"
-            type="submit"
-            onClick={this.handleSubmit}
-          >
-            Sign up for Workshop
-          </button>
+          <div id="signup-workshop-btn">
+            <button type="submit" onClick={this.handleSubmit}>
+              Sign up for Workshop
+            </button>
+          </div>
         )}
 
-        {this.state.showErrorMessage ? <p>{this.state.errorMessage}</p> : null}
-        <p>{this.state.successMessage}</p>
+        {this.state.showErrorMessage ? (
+          <p className="alert alert-warning">{this.state.errorMessage}</p>
+        ) : null}
+        {this.state.showSuccessMessage ? (
+          <p className="alert alert-success">{this.state.successMessage}</p>
+        ) : null}
 
         {this.state.participants.length > 0 ? (
           <div>

@@ -30,6 +30,7 @@ class Login extends Component {
               value={username}
               onChange={this.handleChange}
               placeholder="username"
+              className="signup-login-input"
             />
           </div>
 
@@ -40,10 +41,11 @@ class Login extends Component {
               value={password}
               onChange={this.handleChange}
               placeholder="password"
+              className="signup-login-input"
             />
           </div>
           <div>
-            <input type="submit" value="Login" id="login-btn" />
+            <input type="submit" value="Login" className="signup-login-button" />
           </div>
         </form>
       </div>

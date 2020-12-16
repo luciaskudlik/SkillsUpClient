@@ -147,9 +147,11 @@ class Profile extends Component {
             </p>
           </div>
         </div>
-        <button id="host-workshop-btn" onClick={this.toggleForm}>
-          Host your own workshop
-        </button>
+        <div id="host-workshop-btn">
+          <button  onClick={this.toggleForm}>
+            Host your own workshop
+          </button>
+        </div>
         {this.state.showForm ? (
           <AddWorkshop createWorkshop={this.addOneWorkshop} />
         ) : null}
@@ -173,7 +175,9 @@ class Profile extends Component {
               })
               .reverse()
           ) : (
-            <p>You are not hosting any workshops at the moment.</p>
+            <p className="empty-message">
+              You are not hosting any workshops at the moment.
+            </p>
           )}
         </section>
 
@@ -194,7 +198,7 @@ class Profile extends Component {
               })
               .reverse()
           ) : (
-            <p>
+            <p className="empty-message">
               You have not signed up to any workshops yet. Click{" "}
               <Link to="/">here</Link> to browse.
             </p>
