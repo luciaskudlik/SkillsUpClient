@@ -157,7 +157,7 @@ class WorkshopDetails extends React.Component {
         <p id="details-description">{this.state.description}</p>
 
         {this.state.participants.length === this.state.maxParticipants ? (
-          <p>this course is full!!!!!</p>
+          <p className="alert alert-warning">This course is fully booked.</p>
         ) : (
           <div id="signup-workshop-btn">
             <button type="submit" onClick={this.handleSubmit}>
