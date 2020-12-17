@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import workshopService from "./../lib/workshop-service";
 import WorkshopCard from "./../components/WorkshopCard/WorkshopCard";
 
@@ -14,16 +13,6 @@ class WorkshopList extends React.Component {
     workshopService.getWorkshopsByCategory(category).then((data) => {
       this.setState({ workshops: data });
     });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(
-    //     `${process.env.REACT_APP_API_URL}/api/workshops/category/${category}`
-    //   )
-    //   .then((apiResponse) => {
-    //     this.setState({ workshops: apiResponse.data });
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   componentDidMount() {

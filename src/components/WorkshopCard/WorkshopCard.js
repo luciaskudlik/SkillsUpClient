@@ -17,16 +17,6 @@ class WorkshopCard extends React.Component {
     workshopService.getOneWorkshop(this.props.workshop._id).then((data) => {
       this.setState({ host: data.host });
     });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(
-    //     `${process.env.REACT_APP_API_URL}/api/workshops/${this.props.workshop._id}`,
-    //   )
-    //   .then((response) => {
-    //     this.setState({host: response.data.host})
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   handleDelete = () => {
@@ -39,19 +29,6 @@ class WorkshopCard extends React.Component {
       .then((data) => {
         this.props.delete();
       });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .post(
-    //     `${process.env.REACT_APP_API_URL}/api/workshops/${this.props.workshop._id}`,
-    //     { userId },
-    //     { withCredentials: true }
-    //   )
-    //   .then((response) => {
-    //     console.log("SUCCESSFULLY DELETED");
-    //     this.props.delete();
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   handleCancel = () => {
@@ -63,19 +40,6 @@ class WorkshopCard extends React.Component {
       .then((data) => {
         this.props.cancel();
       });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .post(
-    //     `${process.env.REACT_APP_API_URL}/api/workshops/cancel/${this.props.workshop._id}`,
-    //     { userId },
-    //     { withCredentials: true }
-    //   )
-    //   .then((response) => {
-    //     console.log("SUCCESSFULLY CANCELLED");
-    //     this.props.cancel();
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   handleEdit = () => {
@@ -103,7 +67,10 @@ class WorkshopCard extends React.Component {
               </p>
               <p className="credits">{workshop.credits} credits</p>
             </div>
-            <Link to={`/workshops/${workshop._id}`}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/workshops/${workshop._id}`}
+            >
               <h3 id="card-title">{workshop.title}</h3>
             </Link>
 

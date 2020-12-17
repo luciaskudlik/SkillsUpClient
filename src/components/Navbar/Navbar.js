@@ -13,7 +13,6 @@ class Navbar extends Component {
   };
 
   render() {
-    // const { user, logout, isLoggedin } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
@@ -81,28 +80,6 @@ class Navbar extends Component {
           </div>
         </div>
       </nav>
-
-      // <nav className="navbar">
-      //   <Link to={'/'} id='home-btn'>
-      //     <h4>Home</h4>
-      //   </Link>
-      //   {this.props.isLoggedIn ? (
-      //     <>
-      //       <p>username: {this.props.user && this.props.user.username}</p>
-      //       <button onClick={this.props.logout}>Logout</button>
-      //     </>
-      //   ) : (
-      //     <>
-      //       <Link to="/login">
-      //         <button className="navbar-button">Login</button>{' '}
-      //       </Link>
-      //       <br />
-      //       <Link to="/signup">
-      //         <button className="navbar-button">Sign Up</button>{' '}
-      //       </Link>
-      //     </>
-      //   )}
-      // </nav>
     );
   }
 }

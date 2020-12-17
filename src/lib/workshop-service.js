@@ -1,7 +1,5 @@
 import axios from "axios";
 
-// THIS IS AN EXAMPLE THAT YOU CAN USE
-// TO CREATE A SERVICE FOR YOUR AXIOS CALLS
 class WorkshopService {
   constructor() {
     // this.api  is a reusable base of the request containing the base url (baseURL)

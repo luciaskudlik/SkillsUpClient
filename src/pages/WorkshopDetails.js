@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { withAuth } from "./../context/auth-context";
 import moment from "moment";
 import workshopService from "./../lib/workshop-service";
@@ -57,39 +56,6 @@ class WorkshopDetails extends React.Component {
         location,
       });
     });
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/workshops/${id}`)
-    //   .then((apiResponse) => {
-    //     const theWorkshop = apiResponse.data;
-    //     const {
-    //       title,
-    //       img,
-    //       description,
-    //       category,
-    //       date,
-    //       length,
-    //       credits,
-    //       participants,
-    //       maxParticipants,
-    //       host,
-    //       location,
-    //     } = theWorkshop;
-    //     this.setState({
-    //       title,
-    //       img,
-    //       description,
-    //       category,
-    //       date,
-    //       length,
-    //       credits,
-    //       participants,
-    //       maxParticipants,
-    //       host,
-    //       location,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   componentDidMount = () => {
@@ -104,19 +70,6 @@ class WorkshopDetails extends React.Component {
           });
         });
     }
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     this.setState({
-    //       wallet: response.data.wallet,
-    //       attendedWorkshops: response.data.attendedWorkshops,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   handleSubmit = () => {
@@ -155,19 +108,6 @@ class WorkshopDetails extends React.Component {
             successMessage: "You successfully signed up for this workshop.",
           });
         });
-
-        //CORRECT AXIOS CALL WITHOUT SERVICE!
-        // axios
-        //   .post(`${process.env.REACT_APP_API_URL}/api/workshops/signup/${id}`, {
-        //     userId,
-        //   })
-        //   .then((res) => {
-        //     console.log(res);
-        //     this.setState({
-        //       successMessage: "You successfully signed up for this workshop.",
-        //     });
-        //   })
-        //   .catch((error) => console.log("ERROR ", error));
       }
     } else {
       this.props.history.push("/login");
@@ -180,6 +120,7 @@ class WorkshopDetails extends React.Component {
     return (
       <div id="details-container">
         <Link
+          style={{ textDecoration: "none" }}
           to={`/workshops/category/${this.state.category}`}
           class="back-btn"
         >
@@ -232,7 +173,7 @@ class WorkshopDetails extends React.Component {
           <p className="alert alert-success">{this.state.successMessage}</p>
         ) : null}
 
-        {this.state.participants.length > 0 ? (
+        {this.state.participants.length > 0 && (
           <div>
             <h4 id="attendees">These people are already signed up:</h4>
 
@@ -242,7 +183,7 @@ class WorkshopDetails extends React.Component {
               );
             })}
           </div>
-        ) : null}
+        )}
       </div>
     );
   }

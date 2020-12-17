@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "./../context/auth-context";
-import axios from "axios";
 import authService from "../lib/auth-service";
 
 class Signup extends Component {
@@ -38,19 +37,6 @@ class Signup extends Component {
       this.setState({ img: data.secure_url });
     });
 
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .post(`${process.env.REACT_APP_API_URL}/auth/upload`, uploadData, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     console.log("response is: ", response);
-    //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-    //     this.setState({ img: response.data.secure_url });
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error while uploading the file: ", err);
-    //   });
   };
 
   render() {

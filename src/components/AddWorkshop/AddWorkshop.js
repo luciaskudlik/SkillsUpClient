@@ -66,30 +66,6 @@ class AddWorkshop extends React.Component {
       .then((data) => {
         this.props.createWorkshop();
       });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .post(
-    //     `${process.env.REACT_APP_API_URL}/api/workshops`,
-    //     {
-    //       title,
-    //       img,
-    //       description,
-    //       date,
-    //       category,
-    //       length,
-    //       credits,
-    //       maxParticipants,
-    //       location,
-    //       userId,
-    //     },
-    //     { withCredentials: true }
-    //   )
-    //   .then((response) => {
-    //     //console.log("sent to DB", response.data);
-    //     this.props.createWorkshop();
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   handleFileUpload = (e) => {
@@ -98,26 +74,12 @@ class AddWorkshop extends React.Component {
 
     const uploadData = new FormData();
     // image => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new project in '/api/projects' POST route
+    // req.body to .create() method when creating a new workshop in '/api/workshops' POST route
     uploadData.append("img", file);
 
     workshopService.uploadImage(uploadData).then((data) => {
       this.setState({ img: data.secure_url });
     });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     console.log("response is: ", response);
-    //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-    //     this.setState({ img: response.data.secure_url });
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error while uploading the file: ", err);
-    //   });
   };
 
   render() {
@@ -163,7 +125,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="sports"
               value="Sports"
               onChange={this.handleInput}
               required
@@ -175,7 +136,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="beauty"
               value="Beauty"
               onChange={this.handleInput}
             />
@@ -186,7 +146,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="languages"
               value="Languages"
               onChange={this.handleInput}
             />
@@ -197,7 +156,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="creativity"
               value="Creativity"
               onChange={this.handleInput}
             />
@@ -208,7 +166,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="food-drink"
               value="Food & Drink"
               onChange={this.handleInput}
             />
@@ -219,7 +176,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="performing-arts"
               value="Performing Arts"
               onChange={this.handleInput}
             />
@@ -230,7 +186,6 @@ class AddWorkshop extends React.Component {
             <input
               type="radio"
               name="category"
-              // id="other"
               value="Other"
               onChange={this.handleInput}
             />
@@ -256,13 +211,6 @@ class AddWorkshop extends React.Component {
           required
         />
         <p className="price-tag">Price: {this.state.credits}</p>
-        {/* <input
-          name="credits"
-          type="number"
-          placeholder="credits"
-          value={this.state.credits}
-          onChange={this.handleInput}
-        /> */}
 
         <label for="maxParticipants">Maximum number of participants:</label>
         <input

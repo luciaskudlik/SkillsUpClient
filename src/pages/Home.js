@@ -2,7 +2,6 @@ import React from "react";
 import CategoryCard from "./../components/CategoryCard/CategoryCard";
 import "./../App.css";
 import SearchBar from "./../components/SearchBar/SearchBar";
-import axios from "axios";
 import WorkshopCard from "../components/WorkshopCard/WorkshopCard";
 import { Link } from "react-router-dom";
 import workshopService from "./../lib/workshop-service";
@@ -21,22 +20,9 @@ class Home extends React.Component {
         workshopList: data,
       });
     });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/workshops`)
-    //   .then((response) => {
-    //     this.setState({
-    //       workshopList: response.data,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
-    // console.log("workshop LIIISTTTTTT", this.state.workshopList);
   };
 
   filterWorkshops = (input) => {
-    //console.log("workshop LIIISTTTTTT", this.state.workshopList);
-
     const filtered = this.state.workshopList.filter((workshop) => {
       const workshopName = workshop.title.toLowerCase();
       const searchInput = input.toLowerCase();
@@ -64,7 +50,9 @@ class Home extends React.Component {
         </div>
 
         {this.state.showErrorMessage ? (
-          <p>Sorry, we couldn't match any results.</p>
+          <p className="alert alert-warning">
+            Sorry, we couldn't match any results.
+          </p>
         ) : null}
         {this.state.filteredWorkshops.map((workshop) => {
           return <WorkshopCard workshop={workshop} />;

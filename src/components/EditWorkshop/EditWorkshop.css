@@ -31,15 +31,6 @@
   margin: 20px auto;
 }
 
-/* #edit-form textarea {
-    background-color: #f4f4f2;
-    border: none;
-    border-radius: 3px;
-    width: 300px;
-    margin: 20px auto;
-
-} */
-
 .category-checkboxes {
   display: flex;
   flex-wrap: wrap;
@@ -68,22 +59,6 @@
   color: #495464;
 }
 
-
-
-/* .checkbox-pair > label {
-  display: flex;
-  text-align: left;
-  width: 200px;
-  margin: 0px;
-  align-self: center;
-} */
-
-/* .checkbox-pair > input {
-  margin: 0px;
-  background-color:aquamarine;
-  
-} */
-
 .edit-host-workshop-btn {
   letter-spacing: 1px;
   width: 200px;
@@ -93,5 +68,4 @@
   border-radius: 3px;
   background-color: #357585;
   color: white;
-
 }

@@ -23,17 +23,6 @@ class Profile extends Component {
         wallet: data.wallet,
       });
     });
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, { withCredentials: true })
-    //   .then((response) => {
-    //     this.setState({
-    //       hostedWorkshops: response.data.hostedWorkshops,
-    //       attendedWorkshops: response.data.attendedWorkshops,
-    //       wallet: response.data.wallet,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   }
 
   toggleForm = () => {
@@ -49,19 +38,6 @@ class Profile extends Component {
       });
     });
 
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     this.setState({
-    //       hostedWorkshops: response.data.hostedWorkshops,
-    //       wallet: response.data.wallet,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
-
     this.toggleForm();
   };
 
@@ -73,19 +49,6 @@ class Profile extends Component {
         wallet: data.wallet,
       });
     });
-
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     this.setState({
-    //       hostedWorkshops: response.data.hostedWorkshops,
-    //       wallet: response.data.wallet,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   editOneWorkshop = () => {
@@ -97,18 +60,6 @@ class Profile extends Component {
       });
     });
 
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     this.setState({
-    //       hostedWorkshops: response.data.hostedWorkshops,
-    //       wallet: response.data.wallet,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   cancelOneWorkshop = () => {
@@ -119,18 +70,6 @@ class Profile extends Component {
         wallet: data.wallet,
       });
     });
-    //CORRECT AXIOS CALL WITHOUT SERVICE!
-    // axios
-    //   .get(`${process.env.REACT_APP_API_URL}/api/user`, {
-    //     withCredentials: true,
-    //   })
-    //   .then((response) => {
-    //     this.setState({
-    //       attendedWorkshops: response.data.attendedWorkshops,
-    //       wallet: response.data.wallet,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
   };
 
   render() {
