@@ -212,8 +212,6 @@ https://www.figma.com/file/CjRo3s4nadKkFgfR4rEOfU/Project-3?node-id=1%3A237
 
 ### Git
 
-The url to your repository and to your deployed project
-
 [Client repository Link](https://github.com/screeeen/project-client)
 
 [Server repository Link](https://github.com/screeeen/project-server)
