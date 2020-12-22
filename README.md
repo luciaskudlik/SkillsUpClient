@@ -225,3 +225,8 @@ The url to your repository and to your deployed project
 The url to your presentation slides
 
 [Slides Link](https://docs.google.com/presentation/d/1-Gvj4VxV89Ebe-0QymNUCKC_m6XWNGzsRtbyHIWVQ58/edit?usp=sharing)
+
+### Participants
+
+[Lucia Skudlik] (https://github.com/luciaskudlik)
+[Irene Kyritsis] (https://github.com/irenekyri90)
