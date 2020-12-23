@@ -29,11 +29,11 @@ class Home extends React.Component {
       return workshopName.includes(searchInput);
     });
 
+    this.setState({ filteredWorkshops: filtered, showErrorMessage: false });
+
     if (filtered.length === 0) {
       this.setState({ showErrorMessage: true });
     }
-
-    this.setState({ filteredWorkshops: filtered });
 
     if (input === "") {
       this.setState({ filteredWorkshops: [], showErrorMessage: false });
