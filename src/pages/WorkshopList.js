@@ -21,7 +21,7 @@ class WorkshopList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="workshop-list">
         {this.state.workshops.map((workshop) => {
           return (
             <div key={workshop._id}>

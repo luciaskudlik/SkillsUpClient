@@ -2,7 +2,8 @@
 
 .workshop-card {
   color: #495464;
-  min-height: 320px;
+  min-height: 340px;
+  max-height: 340px;
   width: 300px;
   border-radius: 5px;
   margin: 30px auto;
@@ -39,8 +40,7 @@
 
 #card-bottom {
   display: flex;
-  justify-content: space-between;
-  margin-top: 45px;
+  justify-content: space-between; 
 }
 
 .card-host-container {
@@ -61,7 +61,12 @@
 }
 
 #card-information {
-  padding: 5px;
+  padding: 10px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 180px;
 }
 
 #card-title {

@@ -79,7 +79,7 @@ class WorkshopDetails extends React.Component {
     if (this.props.user) {
       const { wallet } = this.state;
       const { attendedWorkshops } = this.state;
-      console.log("attendedn workshop", attendedWorkshops);
+      console.log("attended workshop", attendedWorkshops);
       console.log(wallet);
 
       const alreadySignedUp = attendedWorkshops.filter((workshop) => {

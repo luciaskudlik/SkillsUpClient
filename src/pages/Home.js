@@ -48,15 +48,16 @@ class Home extends React.Component {
           <p>Join SkillsUp to discover new skills and connect with others.</p>
           <SearchBar filterWorkshops={this.filterWorkshops} />
         </div>
-
-        {this.state.showErrorMessage ? (
-          <p className="alert alert-warning">
-            Sorry, we couldn't match any results.
-          </p>
-        ) : null}
-        {this.state.filteredWorkshops.map((workshop) => {
-          return <WorkshopCard workshop={workshop} />;
-        })}
+        <div id="search-results">
+          {this.state.showErrorMessage ? (
+            <p className="alert alert-warning" id="no-results-message">
+              Sorry, we couldn't match any results.
+            </p>
+          ) : null}
+          {this.state.filteredWorkshops.map((workshop) => {
+            return <WorkshopCard workshop={workshop} />;
+          })}
+        </div>
 
         <div id="description-section">
           <h4>"The key to success is dedication to life-long learning."</h4>
@@ -71,14 +72,15 @@ class Home extends React.Component {
 
         <h2 className="category-info">Find something that intrigues you.</h2>
         <p className="category-info">Pick a category.</p>
-
-        <CategoryCard category="Sports" id="sports" />
-        <CategoryCard category="Beauty" id="beauty" />
-        <CategoryCard category="Languages" id="languages" />
-        <CategoryCard category="Creativity" id="creativity" />
-        <CategoryCard category="Food & Drink" id="food-drink" />
-        <CategoryCard category="Performing Arts" id="performing-arts" />
-        <CategoryCard category="Other" id="other" />
+        <div id="category-container">
+          <CategoryCard category="Sports" id="sports" />
+          <CategoryCard category="Beauty" id="beauty" />
+          <CategoryCard category="Languages" id="languages" />
+          <CategoryCard category="Creativity" id="creativity" />
+          <CategoryCard category="Food & Drink" id="food-drink" />
+          <CategoryCard category="Performing Arts" id="performing-arts" />
+          <CategoryCard category="Other" id="other" />
+        </div>
       </div>
     );
   }
