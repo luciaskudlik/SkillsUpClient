@@ -74,3 +74,13 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media (min-width: 768px) {
+  #performing-arts h3 {
+    padding-top: 190px;
+  }
+
+  .categoryCard {
+    margin: 50px auto;
+  }
+}

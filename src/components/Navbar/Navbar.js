@@ -25,7 +25,7 @@ class Navbar extends Component {
               {this.props.user ? <img src={this.props.user.img} /> : null}
             </Link>
           </div>
-          <span>
+          <span id="mode-buttons">
             <button id="sun-btn" onClick={this.handleDayMode}>
               <i class="fas fa-sun"></i>
             </button>

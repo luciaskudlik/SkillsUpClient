@@ -14,3 +14,13 @@
   outline: none;
   border-radius: 3px;
 }
+
+@media (min-width: 768px) {
+  .search-container {
+    width: 280px;
+  }
+
+  .search-bar {
+    width: 280px;
+  }
+}

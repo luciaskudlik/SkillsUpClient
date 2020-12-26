@@ -122,9 +122,9 @@ class WorkshopDetails extends React.Component {
         <Link
           style={{ textDecoration: "none" }}
           to={`/workshops/category/${this.state.category}`}
-          class="back-btn"
+          className="back-btn"
         >
-          <i class="fas fa-arrow-left"></i> Back to results
+          <i className="fas fa-arrow-left"></i> Back to results
         </Link>
         <p id="details-date">{date}</p>
         <h2 id="workshop-title">{this.state.title}</h2>
@@ -133,7 +133,7 @@ class WorkshopDetails extends React.Component {
         </div>
 
         <div id="info-card">
-          <p id="details-date">
+          <p>
             <i className="fas fa-calendar-alt"></i> {date}
           </p>
           <p>

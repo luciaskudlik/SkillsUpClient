@@ -1,6 +1,7 @@
 import React from "react";
 import workshopService from "./../lib/workshop-service";
 import WorkshopCard from "./../components/WorkshopCard/WorkshopCard";
+import { Link } from "react-router-dom";
 
 class WorkshopList extends React.Component {
   state = {
@@ -22,13 +23,19 @@ class WorkshopList extends React.Component {
   render() {
     return (
       <div id="workshop-list">
-        {this.state.workshops.map((workshop) => {
-          return (
-            <div key={workshop._id}>
-              <WorkshopCard workshop={workshop} />
-            </div>
-          );
-        })}
+        <Link style={{ textDecoration: "none" }} to={"/"} className="back-btn">
+          <i className="fas fa-arrow-left"></i> Back to home page
+        </Link>
+        <h3>{this.props.match.params.category}</h3>
+        <div id="card-grid">
+          {this.state.workshops.map((workshop) => {
+            return (
+              <div key={workshop._id}>
+                <WorkshopCard workshop={workshop} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

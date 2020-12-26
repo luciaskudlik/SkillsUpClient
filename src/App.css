@@ -181,7 +181,7 @@ p.category-info {
   color: white;
 }
 
-/********************************************DetailsPage********************************************/
+/********************************************Details/WorkshopListPage********************************************/
 
 #details-container {
   margin: 20px;
@@ -190,11 +190,28 @@ p.category-info {
 .back-btn {
   color: #357585;
   margin-bottom: 30px;
+  font-size: 13px;
 }
 
-/* #details-date {
-  padding-top: 20px;
-} */
+#details-date {
+  margin-top: 10px;
+}
+
+#workshop-list .back-btn {
+  margin: 10px;
+}
+
+#workshop-list {
+  margin-top: 10px;
+}
+
+#workshop-list > h3 {
+  color: #495464;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  font-size: 35px;
+}
 
 #details-img {
   width: 100%;
@@ -360,7 +377,6 @@ p.category-info {
 }
 
 #login-page > form {
-  border: 1px solid white;
   height: 350px;
   width: 75%;
   margin: 0 auto;
@@ -390,18 +406,54 @@ p.category-info {
     justify-content: space-evenly;
   }
 
-  #workshop-list {
+  #card-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 50px;
+    margin-top: 30px;
   }
 
   #no-results-message {
     margin: 30px;
   }
 
+  #banner {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("./images/boat.jpg");
+    background-position: 0% 65%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
   #category-container {
-    display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+
+  #login-page {
+    min-height: 738px;
+  }
+
+  #login-page > form {
+    height: 500px;
+    width: 60%;
+    margin-top: 50px;
+    justify-content: center;
+  }
+
+  .signup-login-input {
+    margin: 20px;
+    width: 300px;
+  }
+
+  .signup-login-button {
+    width: 300px;
+    margin-top: 20px;
+  }
+
+  #login-page h1 {
+    margin-bottom: 40px;
   }
 }

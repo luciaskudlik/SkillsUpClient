@@ -20,3 +20,18 @@
   font-size: 0.8rem;
   padding: 8px;
 }
+
+/* @media (min-width: 768px) {
+  #footer-div {
+    height: 180px;
+  }
+
+  #follow-us {
+    font-size: 1.1rem;
+    padding-top: 50px;
+  }
+
+  #footer-div i {
+    font-size: 1.1rem;
+  }
+} */
