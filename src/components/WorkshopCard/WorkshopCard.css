@@ -72,4 +72,10 @@
   letter-spacing: 1px;
 }
 
+@media (min-width: 768px) {
+  .workshop-card {
+    margin: 20px;
+  }
+}
+
 

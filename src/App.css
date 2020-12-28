@@ -406,12 +406,21 @@ p.category-info {
     justify-content: space-evenly;
   }
 
-  #card-grid {
+  /* #workshop-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+  .card-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-bottom: 50px;
-    margin-top: 30px;
+    /* justify-content: flex-start; */
+    /* margin-bottom: 50px;
+    margin-top: 30px; */
+    /* width: 90%;
+    margin: 0 auto; */
   }
 
   #no-results-message {
@@ -455,5 +464,35 @@ p.category-info {
 
   #login-page h1 {
     margin-bottom: 40px;
+  }
+
+  #instructions-banner {
+    height: 380px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("./images/instructions-img.jpg");
+    background-position: 0% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+  }
+
+  #instructions-banner h1 {
+    padding: 280px 50px;
+    margin: 0px 70px;
+    font-size: 1.8rem;
+    line-height: 35px;
+  }
+
+  #instructions-container {
+    margin-bottom: 40px;
+  }
+}
+
+/******************************Desktop media query *******************************/
+
+@media (min-width: 1024px) {
+  #banner {
+    background-position: 0% 65%;
+    height: 500px;
   }
 }

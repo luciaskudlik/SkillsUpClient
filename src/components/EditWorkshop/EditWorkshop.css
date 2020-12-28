@@ -21,6 +21,7 @@
   border-radius: 3px;
   width: 200px;
   margin: 20px auto;
+  border: 1px solid #357585;
 }
 
 .edit-form textarea {
@@ -29,6 +30,7 @@
   border-radius: 3px;
   width: 250px;
   margin: 20px auto;
+  border: 1px solid #357585;
 }
 
 .category-checkboxes {
@@ -68,4 +70,22 @@
   border-radius: 3px;
   background-color: #357585;
   color: white;
+}
+
+@media (min-width: 768px) {
+  /* .edit-form input {
+    width: 300px;
+    height: 40px;
+  } */
+
+  .edit-form textarea {
+    width: 400px;
+    height: 100px;
+  }
+
+  .category-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 }

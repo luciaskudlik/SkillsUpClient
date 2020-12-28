@@ -59,7 +59,6 @@ class Profile extends Component {
         wallet: data.wallet,
       });
     });
-
   };
 
   cancelOneWorkshop = () => {
@@ -87,9 +86,7 @@ class Profile extends Component {
           </div>
         </div>
         <div id="host-workshop-btn">
-          <button  onClick={this.toggleForm}>
-            Host your own workshop
-          </button>
+          <button onClick={this.toggleForm}>Host your own workshop</button>
         </div>
         {this.state.showForm ? (
           <AddWorkshop createWorkshop={this.addOneWorkshop} />
@@ -97,22 +94,25 @@ class Profile extends Component {
 
         <section>
           <h2>Your hosted workshops</h2>
+
           {this.state.hostedWorkshops.length > 0 ? (
-            this.state.hostedWorkshops
-              .map((workshop) => {
-                return (
-                  <div key={workshop._id}>
-                    <WorkshopCard
-                      workshop={workshop}
-                      showBin={true}
-                      showPen={true}
-                      delete={this.deleteOneWorkshop}
-                      edit={this.editOneWorkshop}
-                    />
-                  </div>
-                );
-              })
-              .reverse()
+            <div className="card-grid">
+              {this.state.hostedWorkshops
+                .map((workshop) => {
+                  return (
+                    <div key={workshop._id}>
+                      <WorkshopCard
+                        workshop={workshop}
+                        showBin={true}
+                        showPen={true}
+                        delete={this.deleteOneWorkshop}
+                        edit={this.editOneWorkshop}
+                      />
+                    </div>
+                  );
+                })
+                .reverse()}
+            </div>
           ) : (
             <p className="empty-message">
               You are not hosting any workshops at the moment.
@@ -123,19 +123,21 @@ class Profile extends Component {
         <section>
           <h2>Workshops you've signed up for</h2>
           {this.state.attendedWorkshops.length > 0 ? (
-            this.state.attendedWorkshops
-              .map((workshop) => {
-                return (
-                  <div key={workshop._id}>
-                    <WorkshopCard
-                      workshop={workshop}
-                      showCross={true}
-                      cancel={this.cancelOneWorkshop}
-                    />
-                  </div>
-                );
-              })
-              .reverse()
+            <div className="card-grid">
+              {this.state.attendedWorkshops
+                .map((workshop) => {
+                  return (
+                    <div key={workshop._id}>
+                      <WorkshopCard
+                        workshop={workshop}
+                        showCross={true}
+                        cancel={this.cancelOneWorkshop}
+                      />
+                    </div>
+                  );
+                })
+                .reverse()}
+            </div>
           ) : (
             <p className="empty-message">
               You have not signed up to any workshops yet. Click{" "}

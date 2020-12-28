@@ -27,7 +27,7 @@ class WorkshopList extends React.Component {
           <i className="fas fa-arrow-left"></i> Back to home page
         </Link>
         <h3>{this.props.match.params.category}</h3>
-        <div id="card-grid">
+        <div className="card-grid">
           {this.state.workshops.map((workshop) => {
             return (
               <div key={workshop._id}>
