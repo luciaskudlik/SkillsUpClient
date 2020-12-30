@@ -97,21 +97,23 @@ class Profile extends Component {
 
           {this.state.hostedWorkshops.length > 0 ? (
             <div className="card-grid">
-              {this.state.hostedWorkshops
-                .map((workshop) => {
-                  return (
-                    <div key={workshop._id}>
-                      <WorkshopCard
-                        workshop={workshop}
-                        showBin={true}
-                        showPen={true}
-                        delete={this.deleteOneWorkshop}
-                        edit={this.editOneWorkshop}
-                      />
-                    </div>
-                  );
-                })
-                .reverse()}
+              <div className="inner-grid">
+                {this.state.hostedWorkshops
+                  .map((workshop) => {
+                    return (
+                      <div key={workshop._id}>
+                        <WorkshopCard
+                          workshop={workshop}
+                          showBin={true}
+                          showPen={true}
+                          delete={this.deleteOneWorkshop}
+                          edit={this.editOneWorkshop}
+                        />
+                      </div>
+                    );
+                  })
+                  .reverse()}
+              </div>
             </div>
           ) : (
             <p className="empty-message">
@@ -124,19 +126,21 @@ class Profile extends Component {
           <h2>Workshops you've signed up for</h2>
           {this.state.attendedWorkshops.length > 0 ? (
             <div className="card-grid">
-              {this.state.attendedWorkshops
-                .map((workshop) => {
-                  return (
-                    <div key={workshop._id}>
-                      <WorkshopCard
-                        workshop={workshop}
-                        showCross={true}
-                        cancel={this.cancelOneWorkshop}
-                      />
-                    </div>
-                  );
-                })
-                .reverse()}
+              <div className="inner-grid">
+                {this.state.attendedWorkshops
+                  .map((workshop) => {
+                    return (
+                      <div key={workshop._id}>
+                        <WorkshopCard
+                          workshop={workshop}
+                          showCross={true}
+                          cancel={this.cancelOneWorkshop}
+                        />
+                      </div>
+                    );
+                  })
+                  .reverse()}
+              </div>
             </div>
           ) : (
             <p className="empty-message">

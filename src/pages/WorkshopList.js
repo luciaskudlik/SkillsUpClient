@@ -28,13 +28,15 @@ class WorkshopList extends React.Component {
         </Link>
         <h3>{this.props.match.params.category}</h3>
         <div className="card-grid">
-          {this.state.workshops.map((workshop) => {
-            return (
-              <div key={workshop._id}>
-                <WorkshopCard workshop={workshop} />
-              </div>
-            );
-          })}
+          <div className="inner-grid">
+            {this.state.workshops.map((workshop) => {
+              return (
+                <div key={workshop._id}>
+                  <WorkshopCard workshop={workshop} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
