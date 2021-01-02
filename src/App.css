@@ -503,10 +503,6 @@ p.category-info {
     height: 500px;
   }
 
-  /* .card-grid {
-    width: 1200px;
-  } */
-
   .inner-grid {
     width: 1100px;
   }
@@ -516,4 +512,46 @@ p.category-info {
     width: 100vw;
     overflow-x: scroll;
   }
+
+  #details-container {
+    min-height: 550px;
+  }
+
+  #details-img {
+    height: 400px;
+    margin-top: 10px;
+  }
+
+  #left-side-bar-desktop {
+    width: 600px;
+  }
+
+  #right-side-bar-desktop {
+    width: 600px;
+    height: 400px;
+  }
+
+  #details-date {
+    display: none;
+  }
+
+  #desktop-view {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  #already-signed-up {
+    width: 90vw;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #info-card {
+    margin-top: 0px;
+  }
+
+
+
 }

@@ -126,55 +126,62 @@ class WorkshopDetails extends React.Component {
         >
           <i className="fas fa-arrow-left"></i> Back to results
         </Link>
-        <p id="details-date">{date}</p>
-        <h2 id="workshop-title">{this.state.title}</h2>
-        <div id="details-img-container">
-          <img id="details-img" src={this.state.img} alt="" />
-        </div>
-
-        <div id="info-card">
-          <p>
-            <i className="fas fa-calendar-alt"></i> {date}
-          </p>
-          <p>
-            <i className="far fa-clock"></i> {this.state.length} mins
-          </p>
-          <p>
-            <i className="fas fa-coins"></i> {this.state.credits} credits
-          </p>
-          <p>
-            <i className="fas fa-map-marker-alt"></i> {this.state.location}
-          </p>
-          {this.state.host ? (
-            <div id="host-div">
-              <h4>Hosted by:</h4>
-              <img className="participant-img" src={this.state.host.img} />
-              <p>{this.state.host.username}</p>
+        <div id="desktop-view">
+          <section id="left-side-bar-desktop">
+            <p id="details-date">{date}</p>
+            <h2 id="workshop-title">{this.state.title}</h2>
+            <div id="details-img-container">
+              <img id="details-img" src={this.state.img} alt="" />
             </div>
-          ) : null}
+          </section>
+
+          <section id="right-side-bar-desktop">
+            <div id="info-card">
+              <p>
+                <i className="fas fa-calendar-alt"></i> {date}
+              </p>
+              <p>
+                <i className="far fa-clock"></i> {this.state.length} mins
+              </p>
+              <p>
+                <i className="fas fa-coins"></i> {this.state.credits} credits
+              </p>
+              <p>
+                <i className="fas fa-map-marker-alt"></i> {this.state.location}
+              </p>
+              {this.state.host ? (
+                <div id="host-div">
+                  <h4>Hosted by:</h4>
+                  <img className="participant-img" src={this.state.host.img} />
+                  <p>{this.state.host.username}</p>
+                </div>
+              ) : null}
+            </div>
+
+            <p id="details-description">{this.state.description}</p>
+
+            {this.state.participants.length === this.state.maxParticipants ? (
+              <p className="alert alert-warning">
+                This course is fully booked.
+              </p>
+            ) : (
+              <div id="signup-workshop-btn">
+                <button type="submit" onClick={this.handleSubmit}>
+                  Sign up for Workshop
+                </button>
+              </div>
+            )}
+
+            {this.state.showErrorMessage ? (
+              <p className="alert alert-warning">{this.state.errorMessage}</p>
+            ) : null}
+            {this.state.showSuccessMessage ? (
+              <p className="alert alert-success">{this.state.successMessage}</p>
+            ) : null}
+          </section>
         </div>
-
-        <p id="details-description">{this.state.description}</p>
-
-        {this.state.participants.length === this.state.maxParticipants ? (
-          <p className="alert alert-warning">This course is fully booked.</p>
-        ) : (
-          <div id="signup-workshop-btn">
-            <button type="submit" onClick={this.handleSubmit}>
-              Sign up for Workshop
-            </button>
-          </div>
-        )}
-
-        {this.state.showErrorMessage ? (
-          <p className="alert alert-warning">{this.state.errorMessage}</p>
-        ) : null}
-        {this.state.showSuccessMessage ? (
-          <p className="alert alert-success">{this.state.successMessage}</p>
-        ) : null}
-
         {this.state.participants.length > 0 && (
-          <div>
+          <div id="already-signed-up">
             <h4 id="attendees">These people are already signed up:</h4>
 
             {this.state.participants.map((person) => {
