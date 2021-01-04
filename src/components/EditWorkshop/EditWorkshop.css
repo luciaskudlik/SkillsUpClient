@@ -7,6 +7,7 @@
   border-radius: 5px;
   background-color: #bbbfca;
   padding: 20px;
+  text-align: center;
 }
 
 .edit-form label {
@@ -17,20 +18,19 @@
 
 .edit-form input {
   background-color: #f4f4f2;
-  border: none;
   border-radius: 3px;
   width: 200px;
   margin: 20px auto;
-  border: 1px solid #357585;
+  border: 1px solid rgb(53, 117, 133, 0.7);
 }
 
 .edit-form textarea {
   background-color: #f4f4f2;
   border: none;
   border-radius: 3px;
-  width: 250px;
+  width: 200px;
   margin: 20px auto;
-  border: 1px solid #357585;
+  border: 1px solid rgb(53, 117, 133, 0.7);
 }
 
 .category-checkboxes {
@@ -73,13 +73,22 @@
 }
 
 @media (min-width: 768px) {
-  /* .edit-form input {
-    width: 300px;
+  .edit-form {
+    width: 700px;
+  }
+
+  .edit-form input {
+    width: 350px;
     height: 40px;
-  } */
+  }
+
+  #small-input {
+    width: 20px;
+    margin-left: 10px;
+  }
 
   .edit-form textarea {
-    width: 400px;
+    width: 350px;
     height: 100px;
   }
 
@@ -87,5 +96,35 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    height: 250px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  .checkbox-pair {
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
+  }
+
+  .category-checkboxes label {
+    width: 130px;
+    margin-right: 0px;
   }
 }
+
+/* @media (min-width: 1024px) {
+
+ 
+  .edit-form input {
+    width: 350px;
+    height: 40px;
+  }
+
+  .edit-form textarea {
+    width: 350px;
+    height: 100px;
+  }
+
+} */

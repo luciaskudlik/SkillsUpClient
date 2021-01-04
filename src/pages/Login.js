@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import { withAuth } from "./../context/auth-context";
 
 class Login extends Component {
-  state = { username: "", password: "" };
+  state = {
+    username: "",
+    password: "",
+    //errorMessage: false
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
     // Call funciton coming from AuthProvider ( via withAuth )
     this.props.login(username, password);
+    //this.setState({ errorMessage: true });
   };
 
   handleChange = (event) => {
@@ -51,6 +56,9 @@ class Login extends Component {
               className="signup-login-button"
             />
           </div>
+          {/* {this.state.errorMessage ? (
+            <p>username or password incorrect</p>
+          ) : null} */}
         </form>
       </div>
     );

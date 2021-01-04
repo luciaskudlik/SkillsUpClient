@@ -15,7 +15,7 @@ class Signup extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, img, email, password } = this.state;
-    
+
     this.props.signup(username, img, email, password);
   };
 
@@ -36,7 +36,6 @@ class Signup extends Component {
     authService.uploadImage(uploadData).then((data) => {
       this.setState({ img: data.secure_url });
     });
-
   };
 
   render() {
@@ -94,12 +93,17 @@ class Signup extends Component {
             />
           </div>
           <div>
-            <input type="submit" value="Signup" className="signup-login-button" />
+            <input
+              type="submit"
+              value="Signup"
+              className="signup-login-button"
+            />
           </div>
+          <p>
+            Already have an account?
+            <Link to={"/login"}> Login</Link>
+          </p>
         </form>
-
-        <p>Already have an account?</p>
-        <Link to={"/login"}> Login</Link>
       </div>
     );
   }

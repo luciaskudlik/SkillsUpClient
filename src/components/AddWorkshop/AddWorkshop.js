@@ -123,6 +123,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="sports">Sports</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Sports"
@@ -134,6 +135,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="beauty">Beauty</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Beauty"
@@ -144,6 +146,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="languages">Languages</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Languages"
@@ -154,6 +157,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="creativity">Creativity</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Creativity"
@@ -164,6 +168,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="food-drink">Food & Drink</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Food & Drink"
@@ -174,6 +179,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="performing-arts">Performing Arts</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Performing Arts"
@@ -184,6 +190,7 @@ class AddWorkshop extends React.Component {
           <div className="checkbox-pair">
             <label for="other">Other</label>
             <input
+              id="small-input"
               type="radio"
               name="category"
               value="Other"
