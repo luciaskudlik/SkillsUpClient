@@ -21,13 +21,11 @@ This is an app that allows anyone from the community to host and attend workshop
 
 ## Backlog
 
-User profile:
-
-- Write reviews on attended workshops
+- Write reviews/comments on attended workshops
 - Edit and delete user
-- Implement Google Maps for Location
+- Implement Mapbox for Location
 - Implement error messages on Login and Signup Page
-- make site desktop and tablet responsive
+
 
 # Client / Frontend
 
