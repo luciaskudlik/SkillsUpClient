@@ -19,6 +19,8 @@ class Home extends React.Component {
       this.setState({
         workshopList: data,
       });
+
+      console.log(this.state.workshopList);
     });
   };
 
@@ -38,6 +40,8 @@ class Home extends React.Component {
     if (input === "") {
       this.setState({ filteredWorkshops: [], showErrorMessage: false });
     }
+
+    console.log(this.state.filteredWorkshops);
   };
 
   render() {

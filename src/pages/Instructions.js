@@ -58,7 +58,7 @@ function Instructions() {
           </li>
         </ul>
 
-        <h3>And most importantly, HAVE FUN!</h3>
+        <h3 id="have-fun">And most importantly, HAVE FUN!</h3>
       </div>
     </div>
   );

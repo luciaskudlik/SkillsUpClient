@@ -341,7 +341,6 @@ p.category-info {
 
 #signup-page p {
   color: #495464;
-
 }
 
 #signup-page input {
@@ -495,6 +494,10 @@ p.category-info {
   #instructions-container {
     margin-bottom: 40px;
   }
+
+  #have-fun {
+    font-size: 1.5rem;
+  }
 }
 
 /******************************Desktop media query *******************************/
@@ -616,5 +619,12 @@ p.category-info {
     font-size: 1rem;
   }
 
+  #instructions-container > ul {
+    margin: 0 auto;
+    width: 70%;
+  }
 
+  #instructions-container > h3 {
+    margin-top: 50px;
+  }
 }

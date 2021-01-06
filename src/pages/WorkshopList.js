@@ -13,6 +13,7 @@ class WorkshopList extends React.Component {
 
     workshopService.getWorkshopsByCategory(category).then((data) => {
       this.setState({ workshops: data });
+      console.log(this.state.workshops);
     });
   };
 
