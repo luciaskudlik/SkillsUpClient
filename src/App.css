@@ -373,8 +373,9 @@ p.category-info {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 600px;
+  min-height: 550px;
   padding-top: 40px;
+  margin-bottom: 0px;
 }
 
 #login-page > form {
