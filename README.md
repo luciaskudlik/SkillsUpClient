@@ -210,9 +210,9 @@ https://www.figma.com/file/CjRo3s4nadKkFgfR4rEOfU/Project-3?node-id=1%3A237
 
 ### Git
 
-[Client repository Link](https://github.com/screeeen/project-client)
+[Client repository Link](https://github.com/luciaskudlik/SkillsUpClient/tree/develop)
 
-[Server repository Link](https://github.com/screeeen/project-server)
+[Server repository Link](https://github.com/luciaskudlik/SkillsUpServer/tree/develop)
 
 [Deployed App Link](https://skills-up-app.herokuapp.com/)
 
